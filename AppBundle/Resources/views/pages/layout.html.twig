@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <title>{{ page_title is defined ? page_title : 'EventTrx.com' }} x</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/touch/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/images/touch/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/images/touch/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/images/touch/apple-touch-icon-144x144.png') }}">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="{{ asset('assets/images/og-logo.png') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <!--[if lt IE 9]>
+      <script src="{{ asset('assets/js/html5.js') }}"></script>
+      <script src="{{ asset('assets/js/respond.js') }}"></script>
+    <![endif]-->
+    {% block stylesheets %}{% endblock %}
+  </head>
+  <body class="logged-in">
+    <div class="main"><header>
+	<div class="wrap">
+		<div class="logo">
+			<a href="{{ path('app_homepage') }}">
+				<span>EventTrx</span>
+				<em>Your Event - Our Solution</em>
+			</a>
+		</div><!-- /.logo -->
+		<ul class="logged-menu">
+			<li><a href="{{ path('app_my_events') }}">My events</a></li>
+			<li><a href="my_registrations.html">My registrations</a></li>
+			<li><a href="invites.html"><span>3</span>Invites</a></li>
+		</ul>
+		<div class="logged-user-box">
+			<a href="#" class="logged-contact-us">Contact Us</a>
+			<div class="logged-user">
+				<img src="{{ asset('assets/upload/girl.jpg') }}" alt="">
+				<h2>{{ me.firstName }} {{ me.lastName }}</h2>
+				<span class="icon-right"></span>
+				<a href="#" class="open-user-dropdown"></a>
+			</div><!-- /.logged-user -->
+			<div class="logged-dropdown">
+				<ul>
+					<li><a href="my_profile.html"><span class="icons-place"><span class="icon-user-light"></span></span>My pofile</a></li>
+					<li><a href="payment-method.html"><span class="icons-place"><span class="icon-purse"></span></span>Payment method</a></li>
+					<li><a href="payout-method.html"><span class="icons-place"><span class="icon-pay"></span></span>Payout method</a></li>
+					<li><a href="subscriptions.html"><span class="icons-place"><span class="icon-plane"></span></span>Subscriptions</a></li>
+					<li><a href="account-activity.html"><span class="icons-place"><span class="icon-alarm"></span></span>Account activity</a></li>
+					<li><a href="{{ path('app_user_logout') }}"><span class="icons-place"><span class="icon-log-out"></span></span>Logout</a></li>
+				</ul>
+			</div><!-- /.logged-dropdown -->
+		</div><!-- /.logged-user-box -->
+		<a href="#" class="mobile-menu"></a>
+	</div><!-- /.wrap -->
+</header>
+     {% block content %}{% endblock %}
+    </div><footer>
+	<div class="wrap">
+		<div class="event-row clearfix">
+			<div class="column col-40 desktop-column">
+				<div class="logo">
+					<a href="{{ path('app_homepage') }}">
+						<span>EventTrx</span>
+						<em>Your Event - Our Solution</em>
+					</a>
+				</div><!-- /.logo -->
+				<div class="footer-text">
+					<p>Perfect for coordinating social gatherings, planning charity events and signing the kids up for participation in all types of community events</p>
+				</div>
+				<div class="copyright">© 2015 sitename.com</div>
+				<div class="footer-links">
+					<p><a href="#">Privacy policy</a></p>
+					<p><a href="#">Terms of service</a></p>
+				</div><!-- /.footer-links -->
+			</div><!-- /.column -->
+			<div class="column col-40">
+				<div class="row clearfix">
+					<div class="column col-50">
+						<div class="footer-title">Plan Events</div>
+						<ul>
+							<li><a href="#">Event Academy</a></li>
+							<li><a href="#">Classes & Workshops</a></li>
+							<li><a href="#">Conferences</a></li>
+							<li><a href="#">Endurance</a></li>
+							<li><a href="#">Food & Drink</a></li>
+							<li><a href="#">Music</a></li>
+							<li><a href="#">Nonprofits & Fundraisers</a></li>
+							<li><a href="#">Performing & Visual Arts</a></li>
+							<li><a href="#">Politics</a></li>
+							<li><a href="#">Reunions</a></li>
+						</ul>
+					</div><!-- /.column -->
+					<div class="column col-50">
+						<div class="footer-title">EventTrx</div>
+						<ul>
+							<li><a href="#">Using EventTrx</a></li>
+							<li><a href="#">How It Works</a></li>
+							<li><a href="#">Pricing</a></li>
+							<li><a href="#">Sitemap</a></li>
+						</ul>
+					</div><!-- /.column -->
+				</div><!-- /.row -->
+			</div><!-- /.column -->
+			<div class="column col-20">
+				<div class="social">
+					<a href="#" class="icon-facebook"></a>
+					<a href="#" class="icon-twitter"></a>
+					<a href="#" class="icon-google"></a>
+				</div><!-- /.social -->
+			</div><!-- /.column -->
+			<div class="column mobile-column">
+				<div class="logo">
+					<a href="{{ path('app_homepage') }}">
+						<span>EventTrx</span>
+						<em>Your Event - Our Solution</em>
+					</a>
+				</div><!-- /.logo -->
+				<div class="footer-text">
+					<p>Perfect for coordinating social gatherings, planning charity events and signing the kids up for participation in all types of community events</p>
+				</div>
+				<div class="copyright">© 2015 sitename.com</div>
+				<div class="footer-links">
+					<p><a href="#">Privacy policy</a></p>
+					<p><a href="#">Terms of service</a></p>
+				</div><!-- /.footer-links -->
+			</div><!-- /.column -->
+		</div><!-- /.row -->
+	</div><!-- /.wrap -->
+</footer>
+<div id="ajax_sidebar" class="fixed-scroll-window dev-2">
+	<div class="add-new-member right-fixed-box">
+		<a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+		<div class="rfb-item">
+		</div><!-- /.rfb-item -->
+	</div><!-- /.forgot-box -->
+</div><!-- /.fixed-scroll-window -->
+<div class="mobile-menu-box">
+	<a href="#" class="close-menu-box icon-close"></a>
+	<ul>
+		<li><a href="{{ path('app_my_events') }}">My events</a></li>
+		<li><a href="my_registrations.html">My registrations</a></li>
+		<li><a href="#"><em>3</em>Invites</a></li>
+		<li><a href="#">Contact Us</a></li>
+	</ul>
+	<div class="logged-user-box">
+		<div class="logged-user">
+			<img src="{{ asset('assets/upload/girl.jpg') }}" alt="">
+			<h2>{ me.firstName }} {{ me.lastName }}</h2>
+			<span class="icon-right"></span>
+			<a href="#" class="open-user-dropdown"></a>
+		</div><!-- /.logged-user -->
+		<div class="logged-dropdown">
+			<ul>
+				<li><a href="my_profile.html"><span class="icons-place"><span class="icon-user-light"></span></span>My pofile</a></li>
+				<li><a href="#"><span class="icons-place"><span class="icon-purse"></span></span>Payment method</a></li>
+				<li><a href="#"><span class="icons-place"><span class="icon-pay"></span></span>Payout method</a></li>
+				<li><a href="#"><span class="icons-place"><span class="icon-plane"></span></span>Subscriptions</a></li>
+				<li><a href="#"><span class="icons-place"><span class="icon-alarm"></span></span>Account activity</a></li>
+				<li><a href="{{ path('app_user_logout') }}"><span class="icons-place"><span class="icon-log-out"></span></span>Logout</a></li>
+			</ul>
+		</div><!-- /.logged-dropdown -->
+	</div><!-- /.logged-user-box -->
+</div><!-- /.mobile-menu -->
+
+ <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dropzone.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>	
+    <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('assets/js/library.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+	<script src="{{ asset('assets/js/app.js') }}"></script>
+	
+	{% block footer_script %}{% endblock %}
+  </body>
+</html>

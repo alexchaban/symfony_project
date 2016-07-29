@@ -1,0 +1,340 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+    <form name="main-form" id="eventBuilderForm" method="POST" enctype="multipart/form-data">
+      <div id="content">
+        <div class="registration-form-builder clearfix">
+          <div class="rfb-box-wrap">
+            <div class="rfbw-title styled-dev-1">
+              <h1>Event Builder</h1>
+            </div>
+            <!-- /.rfbw-title-->
+            <div class="steps steps-4 clearfix styled-dev-1">
+              <div class="step-item si-complite">
+                <div class="step-icon"><span class="icon-step"></span></div>
+                <!-- /.step-icon-->
+                <p><span>1</span> Step: Registration</p>
+              </div>
+              <!-- /.step-item-->
+              <div class="step-item">
+                <div class="step-icon">                           </div>
+                <!-- /.step-icon-->
+                <p><span>2</span> Step: Event information</p>
+              </div>
+              <!-- /.step-item-->
+              <div class="step-item">
+                <div class="step-icon"></div>
+                <!-- /.step-icon-->
+                <p><span>3</span> Step: Event pricing</p>
+              </div>
+              <!-- /.step-item-->
+              <div class="step-item si-last">
+                <div class="step-icon"></div>
+                <!-- /.step-icon-->
+                <p>Finish & Publish</p>
+              </div>
+              <!-- /.step-item-->
+            </div>
+            <!-- /.steps.steps-4.clearfix-->
+          </div>
+          <!--.rfb-box-wrap-->
+        </div>
+        <!-- /.registration-form-builder-->
+
+        <div class="dev-1-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Title<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+              <div class="col-lg-10 col-md-12">
+                <input type="text" name="event[title]" class="base-input-dev-1 auto_width" value="{{ event.title|default('') }}" required />
+              </div>
+              <div class="col-lg-2 col-md-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Type<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+              <div class="col-lg-10 col-md-12">
+                {% if eventTypes is defined and eventTypes|length > 0 %}
+                  <ul class="radios-styled-dev-1 pull-left">
+                  {% set sTypeId = event.type.id|default('') %}
+                  {% for eventType in eventTypes|slice(0, 5) %}
+                    <li {{ (sTypeId is empty) ? ((loop.index == 2) ? 'class="withouth_border"') }}>
+                      <input id="event_type_{{ eventType.id }}" type="radio" name="event[type]" value="{{ eventType.id }}" {{ (sTypeId is empty) ? ((loop.first) ? 'checked') : ((eventType.id == sTypeId) ? 'checked') }} />
+                      <label for="event_type_{{ eventType.id }}">{{ eventType.name }}</label>
+                    </li>
+                  {% endfor %}
+                  </ul>
+                  {% if eventTypes|length > 5 %}
+                    <div class="more-types events-more pull-left"><a href="#" class="open-events-more">...</a>
+                      <div class="events-more-dropdown">
+                        <div class="custom-scroll">
+                          <ul class="radios-styled-dev-1">
+                            {% for eventType in eventTypes|slice(5, eventTypes|length) %}
+                              <li>
+                                <input id="event_type_{{ eventType.id }}" type="radio" name="event[type]" value="{{ eventType.id }}" {{ (eventType.id == sTypeId) ? 'checked' }} />
+                                <label for="event_type_{{ eventType.id }}">{{ eventType.name }}</label>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.radios-styled-dev-1-->
+                  {% endif %}
+                {% else %}
+                  <div class="dev-1-c_gray lh-60">No event types</div>
+                {% endif %}
+              </div>
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Description</div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <textarea class="base-textarea-dev-1 auto_width" name="event[description]">{{ event.description|default('') }}</textarea>
+              </div>
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-180-lg"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Logo</div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <div id="dropzone" class="drop-box-logo">
+                  {#
+                  <form action="{{ path('app_new_event') }}" class="dropzone" id="dropzone-logo">
+                    <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                  </form>
+                  #}
+
+                  <div class="" id="dropzone-logo">
+                    <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                  </div>
+
+                </div>
+                <div class="up-change-text"><a href="#" class="dev-1-c_red delete-dropzone-files"><i class="icon-close"></i>Delete</a></div>
+                <!-- /.upload-logo-dev-1-->
+              </div>
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-180-lg"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Pictures</div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <div class="row">
+                  <div class="col-md-8 col-lg-8">
+                    <div class="upload-img-dev-1">
+                      <div class="wrapp_custom-input-file">
+                        {#
+                        <form action="{{ path('app_new_event') }}" multiple class="dropzone" id="dropzone-images">
+                          <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                        </form>
+                        #}
+
+                        <div class=" dropzone" id="dropzone-images">
+                          <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                        </div>
+
+                        <!--i.icon-drop-->
+                        <!--input(type="file", class="custom-file-input", multiple)-->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4 dev-1-c_gray">Min 1200 px - 900 px Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</div>
+                </div>
+              </div>
+              <!-- /.col-lg-10-->
+              <div class="col-lg-8 col-md-12 col-xs-12">
+                <div class="row">
+                  <div class="col-lg-3 dev-1-text-label col-xs-12">Start Date/Time<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+                  <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+                    {#
+                    <input type="text" name="event[startDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+                    <input type="text" name="event[startTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+                    #}
+                    <input type="text" name="event[startDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventStartDateTime {# datetime #}" required value="{{ (event.startDateTime is defined) ? event.startDateTime|date('m/d/Y H:i A') }}" />
+                  </div>
+                  <div class="col-lg-3 dev-1-text-label col-xs-12">Finish<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+                  <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+                    {#
+                    <input type="text" name="event[endDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+                    <input type="text" name="event[endTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+                    #}
+                    <input type="text" name="event[endDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventEndDateTime {# datetime #}" required value="{{ (event.endDateTime is defined) ? event.endDateTime|date('m/d/Y H:i A') }}" />
+                  </div>
+                </div>
+                <!-- /.row-->
+              </div>
+              <!-- /.col-lg-8-->
+              <div class="col-lg-4 col-md-12 col-xs-12">
+                <div class="row">
+                  <div class="col-lg-4 col-xs-12 dev-1-text-label">Timezone</div>
+                  <div class="col-lg-8 col-xs-12 m-0">
+                    <div class="select-box">
+                      <select class="select" name="event[timezone]">
+                        {% set tzList = [ 'UTC−05:00', 'UTC−06:00', 'UTC−07:00', 'UTC−08:00', 'UTC−09:00', 'UTC−10:00', 'UTC+10:00' ] %}
+                        {% for tz in tzList %}
+                          <option value="{{ tz }}" {{ (tz == event.timezone|default(-1)) ? 'selected' }}>{{ tz }}</option>
+                        {% endfor %}
+                      </select><i class="icon-right"></i>
+                    </div>
+                    <!-- /.select-box-->
+                    <div class="clearfix"></div>
+                    <div class="dev-1-c_gray dev-1-m30">
+                      <div class="checkbox-material">
+                        <input type="checkbox" id="check1" name="event[setAsDefaultTimezone]">
+                        <label for="check1"></label>
+                      </div>Set this timezone as my default timezone
+                    </div>
+                  </div>
+                </div>
+                <!-- /.row-->
+              </div>
+              <!-- /.col-lg-4.col-xs-12-->
+              <div class="clearfix"></div>
+              <div class="col-lg-2 col-xs-12 dev-1-text-label lh-60">Registration dates</div>
+              <div class="col-lg-10 col-xs-12"><a href="#" class="add-new-link add-registration-dates"><span>+</span>Registration dates differens from event dates</a></div>
+              <div class="registration-dates-block">
+                <div class="col-lg-8 col-md-12 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 dev-1-text-label col-xs-12">Registration Start Date/Time<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+                    <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+                      {#
+                      <input type="text" name="event[startRegDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+                      <input type="text" name="event[startRegTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+                      #}
+                      <input type="text" name="event[startRegDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventStartRegDateTime {# datetime #}" value="{{ (event.startRegDateTime is defined) ? event.startRegDateTime|date('m/d/Y H:i A') }}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-xs-12">
+                  <div class="row">
+                    <div class="col-lg-3 dev-1-text-label col-xs-12">Registration End Date/Time<span class="step-icon si-valid"><i class="icon-step"></i></span></div>
+                    <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+                      {#
+                      <input type="text" name="event[endRegDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+                      <input type="text" name="event[endRegTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+                      #}
+                      <input type="text" name="event[endRegDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventEndRegDateTime {# datetime #}" value="{{ (event.endRegDateTime is defined) ? event.endRegDateTime|date('m/d/Y H:i A') }}" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!--.dev-1-block-->
+        <div class="dev-1-block dev-1-bg-beige">
+          <div class="container">
+            <div class="row border-bottom-dev-1">
+              <div class="col-md-2 col-xs-12 dev-1-text-label lh-60"> Organized by</div>
+              <div class="col-md-3 col-xs-12">
+                <div class="select-box styled-dev-1">
+                  <select class="select" name="event[organizedBy]" id="organizations">
+                    {% set sOrgId = event.organizedBy.id|default('') %}
+                    {% for organization in organizations %}
+                      <option value="{{ organization.id }}" {{ (sOrgId == organization.id) ? 'selected' }}>{{ organization.name }}</option>
+                    {% endfor %}
+                  </select><i class="icon-right"></i>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-12 dev-1-text-label"><a href="{{ path('add_organization') }}" class="add-new-link ajax-sidebar"><span>+</span>Add new organization</a></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-lg-offset-2">
+                <button class="green-btn dev-1-m30" type="submit" id="eventBuilderGoToNextStep">Continue</button>
+                <a href="{{ path('app_my_events') }}" class="gray-btn dev-1-m30 w-auto">Cancel</a>
+              </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!--dev-1-block.dev-1-bg-beige-->
+      </div>
+    </form>
+<link rel="stylesheet" href="{{ asset('assets/css/dropzone.css') }}">
+{% endblock %}
+
+{% block footer_script %}
+
+<script type="text/javascript">
+  Dropzone.autoDiscover = false;
+  jQuery(document).ready(function() {
+    var picDropzone = new Dropzone("#dropzone-images", {
+      url: "{{ path('app_new_event') }}",
+      autoProcessQueue: false
+    });
+
+    var logoDropzone = new Dropzone('#dropzone-logo', {
+      url: "{{ path('app_new_event') }}",
+      autoProcessQueue: false
+    });
+
+    var arr = [],
+        logo;
+
+    picDropzone.on("addedfile", function(file) {
+      arr.push(file);
+    });
+
+    logoDropzone.on("addedfile", function(file) {
+      logo = file;
+    });
+
+    $('#eventBuilderGoToNextStep').on('click', function(e) {
+      e.preventDefault();
+      //picDropzone.processQueue();
+
+      var form = document.forms['main-form'];
+      var fd = new FormData(form);
+
+      $.each(arr, function (i, v) {
+        fd.append('event[pictures][]', v);
+      });
+
+      fd.append('event[pictures][logo]', logo);
+
+      $.ajax({
+        type: "POST",
+        data: fd,
+        processData: false,
+        contentType: false,
+        url: "{{ path('app_new_event', {'eventId' : eventId}) }}",
+        success: function(data, status, xhr) {
+          if (data.route != void 0) {
+            location.href = data.route;
+          }
+        }
+      });
+    });
+
+    // datepickers
+
+    $('.eventStartDateTime, .eventEndDateTime, .eventStartRegDateTime, .eventEndRegDateTime').datetimepicker({
+      format: 'MM/DD/YYYY LT',
+      minDate: 'now',
+    });
+
+    var eventStartDateTime = $('.eventStartDateTime').data('DateTimePicker'),
+        eventEndDateTime = $('.eventEndDateTime').data('DateTimePicker'),
+        eventStartRegDateTime = $('.eventStartRegDateTime').data('DateTimePicker'),
+        eventEndRegDateTime = $('.eventEndRegDateTime').data('DateTimePicker');
+
+    $('.eventStartDateTime').on('dp.change', function(e) {
+      var startDate = $(this).data('date');
+      var endDate = $('.eventEndDateTime').data('date');
+
+      if (startDate) {
+        eventEndDateTime.options({
+          minDate: new Date(startDate)
+        });
+        eventStartRegDateTime.date(new Date(startDate))
+      }
+
+      //console.log(endDate !== void 0, (endDate !== void 0 && new Date(endDate) < new Date(startDate)) )
+
+      if (endDate !== void 0 && new Date(endDate) < new Date(startDate)) {
+        $('.eventEndDateTime').data('date', '');
+      }
+    });
+
+    $('.eventEndDateTime').on('dp.change', function(e) {
+      var date = $(this).data('date');
+      eventEndRegDateTime.date(new Date(date));
+    });
+
+  });
+</script>
+
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

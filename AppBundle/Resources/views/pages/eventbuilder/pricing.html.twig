@@ -1,0 +1,821 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block content %}
+<div id="content">
+        <div class="registration-form-builder clearfix">
+          <div class="rfb-box-wrap">
+            <div class="rfbw-title styled-dev-1">
+              <h1>Event Builder</h1>
+            </div>
+            <!-- /.rfbw-title-->
+            {% include 'AppBundle:pages:eventbuilder/steps.html.twig' %}
+          </div>
+          <!--.rfb-box-wrap-->
+        </div>
+        <!-- /.registration-form-builder-->
+		<form action="{{ path('event_pricing') }}" method="post">
+			<div class="dev-1-block">
+			  <div class="container">
+				
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-2 col-xs-12 dev-1-mb30">
+						<h2 class="row-title-dev-1">Event Seats/Tickets</h2>
+					</div>
+					
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Is this a free event? 
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<div class="select-box small-select">
+							<select class="select hasFee" name="data[hasFee]" >
+								<option value="1" {{ event.hasFee == 1 ? "selected" : "" }}>No</option>
+								<option value="0" {{ event.hasFee is not defined or event.hasFee == 0 ? "selected" : "" }} >Yes</option>
+							</select>
+							<i class="icon-right"></i>
+						</div>
+					</div>
+					
+					<div class="clearfix"></div>
+					
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Total number of tickets<span class="dev-1-c_green">*</span>
+						<div id="total_error" class="general_error hidden">Please enter a valid number</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<input type="text" class="base-input-dev-1 small-width text-center number required" name="data[totalSeats]" value="{{ event.totalSeats }}" id="total_seats"/>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">
+						<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+							<div class="info-help-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							</div>
+						</a>Max # of tickets per purchase
+						<div id="one_buy_error" class="general_error hidden">Value should be less then total number of tickets</div>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<input type="text" class="base-input-dev-1 small-width text-center number" name="data[registerTogheter]" value="{{ event.registerTogheter|default(0) }}" id="one_buy"/>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">
+						<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+							<div class="info-help-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							</div>
+						</a>Do you want to add a waiting list?</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<div class="select-box small-select">
+							<select class="select" name="data[waitingList]" id="waiting_list">
+								<option value="0">No</option>
+								<option value="1" {{ event.waitingList == 1 ? 'selected' : ''}}>Yes</option>
+							</select>
+							<i class="icon-right"></i>
+						</div>
+						<!-- /.select-box-->
+					</div>
+					<div class="col-xs-12 visible-lg"></div>
+					<div id="wating_div" class="{{ event.waitingList != 1 ? 'hidden' : '' }}">
+						<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">
+							<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div>
+							</a>Number of waiting list tickets<span class="dev-1-c_green">*</span></div>
+						<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+							<input type="text" class="base-input-dev-1 small-width text-center number" name="data[waitingSeats]" value="{{ event.waitingSeats }}" />
+						</div>
+						<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Automatically move a ticket from waitlist if availability arises?</div>
+						<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+							<div class="select-box small-select" name="data[moveWaitingList]">
+								<select class="select">
+									<option value="0">No</option>
+									<option value="1" {{ event.moveWaitingList == 1 ? 'selected' : ''}}>Yes</option>
+								</select>
+								<i class="icon-right"></i>
+							</div>
+							<!-- /.select-box-->
+						</div>
+						<div class="col-xs-12 visible-lg"></div>
+					</div>
+					
+					<input type="hidden" name="data[participant_type]" id="participat_type" value="1" />
+					
+				</div>
+				<!-- /.row-->
+				<!-- locations-->
+				<div id="ticket_type_error" class="general_error hidden">Total Assigned must be equal to the Total no. of tickets</div>
+				<div id="paricipant_types" >
+					<div class="row visible-md visible-lg dev-1-mt20">
+						<div class="col-lg-3 col-md-3 col-lg-offset-2 col-md-offset-1 dev-1-c_gray">Ticket Type</div>
+						<div class="col-lg-3 col-md-3 dev-1-c_gray"> 
+							<p>Assigned</p>
+						</div>
+						<div class="col-lg-3 col-md-4 dev-1-c_gray"> 
+							<p>Price</p>
+						</div>
+					</div>
+					<!-- /. row.visiible-lg-->
+					
+					{% if participant_types|length == 0 %}
+					<div class="row line participant_type">
+						<div class="col-lg-2 col-xs-1 col-xxs-2">
+							<a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md remove_block">&#215;</a>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-5 col-xs-10 col-xxs-10">
+							<div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">Ticket Type</div>
+							<input type="text" class="base-input-dev-1 w-full" name="participant[name][]" />
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-6 col-xxs-10 col-xxs-offset-2">
+							<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+							<input type="text" class="base-input-dev-1 small-width "name="participant[max][]" />
+						</div>
+						<div class="col-lg-2 col-md-4 col-xs-6 col-xxs-10 col-xxs-offset-2 event_fees">
+							<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+							<input type="text" class="base-input-dev-1 small-width "name="participant[fee][]" />
+						</div>
+						<div class="col-lg-1 col-md-3 col-sm-6 col-xs-6 ">
+							<a href="#" class="add-new-link pb-anl w-auto m-0 add_block">
+								<span>+</span>Add More</a>
+						</div>
+						<input type="hidden" class="base-input-dev-1 small-width " name="participant[id][]" value=""/>
+					</div>
+					<!--.row.line-->
+					{% else %}
+					
+					{% for participant_type in participant_types %}
+					<div class="row line participant_type" id="participant_{{ participant_type.id }}">
+						<div class="col-lg-2 col-xs-1 col-xxs-2">
+							<a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md remove_block">&#215;</a>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-5 col-xs-10 col-xxs-10">
+							<div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">Ticket Type</div>
+							<input type="text" class="base-input-dev-1  w-full required" name="participant[name][]" value="{{ participant_type.name }}"/>
+						</div>
+						<div class="col-lg-3 col-md-3 col-xs-6 col-xxs-10 col-xxs-offset-2">
+							<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+							<div class="row">
+								<input type="text" class="base-input-dev-1 small-width required number" name="participant[max][]" value="{{ participant_type.maxUsers }}"/>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-xs-6 col-xxs-10 col-xxs-offset-2 event_fees">
+							<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+							<input type="text" class="base-input-dev-1 small-width required number"name="participant[fee][]" value="{{ participant_type.fee }}" />
+						</div>
+						<div class="col-lg-1 col-md-3 col-sm-6 col-xs-6 " >
+							<a href="#" class="add-new-link pb-anl w-auto m-0 add_block" style="{{ loop.last == false ? 'display:none' : '' }}">
+								<span>+</span>Add More</a>
+						</div>
+						<input type="hidden" class="base-input-dev-1 small-width " name="participant[id][]" value="{{ participant_type.id }}"/>
+					</div>
+					<!--.row.line-->
+					{% endfor %}
+					
+					{% endif %}
+					
+					<div class="col-lg-10 col-lg-offset-2 col-xs-12">
+						<div class="border-bottom-dev-1 dev-1-m20"></div>
+					</div>
+					<!--.row.line-->
+				</div>
+				<!-- / locations-->
+				
+				<div class="row">
+				  
+				  <div id="event_fees" class="{{ event.hasFee == 0 ? 'hidden' : '' }}">
+					  <!--
+					  <div class="col-md-12">
+						<div class="event-builder-dates-block">
+						  <p><span class="date-type">Registration Dates:</span><span>{{ event.startRegDateTime|date('D M d, Y h:mA') }}<em>-</em> {{ event.endRegDateTime|date('D M d, Y h:mA') }}</span></p>
+						  <p><span class="date-type">Event dates:</span><span>{{ event.startDateTime|date('D M d, Y h:mA') }} <em>-</em> {{ event.endDateTime|date('D M d, Y h:mA') }}</span></p>
+						</div>
+					  </div>
+					  -->
+					  <div class="col-md-12">
+					  <!--
+						<div class="events-tabs green-tabs">
+						  <ul>
+							<li class="active"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-1">Event Fees</a></li>
+							<li><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-2">Additional Fees</a></li>
+							<li><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-3">Recurring Fees</a></li>
+							<li><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-4">Payment Processing</a></li>
+							<li><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-5">Refunds</a></li>
+							<li><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+								<div class="info-help-block">
+								  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+								</div></a><a href="#" data-tab-id="det-6">Discount</a></li>
+						  </ul>
+						</div>
+					
+						<div id="det-1" class="box visible">
+						  <div class="row">
+							<div class="col-md-8 col-md-offset-2 dev-1-mb30">
+							  <p>You can specify any discount such as early registration etc. in the next section.</p>
+							  <p>Fee amouts collected on this page are full prices before</p>
+							</div>
+							 {% if participant_types|length > 1%}
+							<div class="col-md-6">
+							  <div class="col-md-6 dev-1-text-label">Would you like to specify different prices for each ticket type?</div>
+							  <div class="col-md-6">
+								<div class="select-box styled-dev-1">
+								  <select class="select participant_fees" name="data[fees][per_participant]">
+									<option value="0" {{ event.fees.per_participant is not defined or event.fees.per_participant == 0 ? "selected" : "" }}>No</option>
+									<option value="1" {{ event.fees.per_participant is defined and event.fees.per_participant == 1 ? "selected" : "" }}>Yes</option>									
+								  </select><i class="icon-right"></i>
+								</div>
+							  </div>
+							</div>
+							{% endif %}
+							
+							<div class="col-md-6">
+							  <div class="col-md-6 dev-1-text-label">Is full payment required at the timeof registration?</div>
+							  <div class="col-md-6">
+								<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+								  <li>
+									<input type="radio" value="0" name="data[fees][required]" id="option3" {{ event.fees.required  is not defined or event.fees.required == 0 ? "checked" : "" }}>
+									<label for="option3">No</label>
+								  </li>
+								  <li>
+									<input type="radio" value="1" name="data[fees][required]" id="option4" {{ event.fees.required is defined and event.fees.required  == 1 ? "checked" : "" }}>
+									<label for="option4">Yes</label>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							
+						  </div>
+						  <div class="row">
+							<div class="{{ event.fees.per_participant != 1  or  participant_types|length == 0 ? 'hidden' : '' }}" id="per_participant">
+								<div class="col-md-8 col-md-offset-2 dev-1-mb30">
+								  <p>Since you event has different ticket types, you can specify different registration fees each type if needed</p>
+								</div>
+								<div class="row line ">
+								  <div class="col-lg-2 col-md-3 col-xs-5 col-xs-10 col-xxs-10 col-lg-offset-1">
+									<div class="dev-1-text-label">Ticket Type</div>
+								  </div>
+								  <div class="col-lg-2 col-md-3 col-xs-5 col-xs-10 col-xxs-10 col-lg-offset-1">
+									<div class="dev-1-text-label">Ticket Price<span class="dev-1-c_green">*</span></div>
+								  </div>
+								 </div>
+								{% for participant in participant_types %}
+								<div class="row line ">
+								  <div class="col-lg-2 col-md-3 col-xs-5 col-xs-10 col-xxs-10 col-lg-offset-1">
+									<div class="dev-1-text-label">{{ participant.name }}</div>
+								  </div>
+								  <div class="col-lg-2 col-md-3 col-xs-5 col-xs-10 col-xxs-10 col-lg-offset-1">
+									<input type="text" class="base-input-dev-1 number required" name="participant[{{ participant.id}}]" value="{{ participant.fee }}">
+								  </div>
+								</div>
+								{% endfor %}
+								  
+							</div>
+							<div class="row line  {{ event.fees.per_participant == 1 ? 'hidden' : '' }}" id="single_participant">
+							  <div class="col-lg-2 col-md-3 col-xs-5 col-xs-10 col-xxs-10 col-lg-offset-1">
+								<div class="dev-1-text-label">Ticket Price<span class="dev-1-c_green">*</span></div>
+							  </div>
+							  <div class="col-lg-6 col-md-7 col-xs-6 col-xxs-10">
+								<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+								<div class="row">
+								  <div class="col-md-4 col-xs-6">
+									<input type="text" class="base-input-dev-1 number required" name="data[fees][single_participant]" value="{{ event.fees.single_participant is defined ? event.fees.single_participant : '' }}">
+								  </div>
+								</div>
+								
+							  </div>
+							</div>
+						  </div>
+						  
+						</div>
+						-->
+						<div id="det-2" class="box visible">
+						  <div class="col-md-12">
+							<div class="row visible-md visible-lg dev-1-mt20">
+							  <div class="col-lg-3 col-md-3 col-lg-offset-2 col-md-offset-1 dev-1-c_gray dev-1-m10">What are these fees?</div>
+							  <div class="col-lg-6 col-md-7 dev-1-c_gray dev-1-m10">
+								<div class="row">
+								  <div class="col-xs-4">Fee Amount ($)</div>
+								  <div class="col-xs-4">Refundable?</div>
+								  <div class="col-xs-4">Required?</div>
+								</div>
+							  </div>
+							</div>
+							<div class="row line ad_fee hidden">
+							  <div class="col-lg-2 col-xs-1 col-xxs-2"><a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md remove_ad">&#215;</a></div>
+							  <div class="col-lg-3 col-md-3 col-xs-5 col-xs-10 col-xxs-10">
+								<div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">What are these fees?</div>
+								<input type="text" value="" class="base-input-dev-1 required" name="add[title][rep_id]">
+							  </div>
+							  <div class="col-lg-6 col-md-7 col-xs-6 col-xxs-10 col-xxs-offset-2">
+								<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+								<div class="row">
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Fee Amount ($)</div>
+									<input type="text" value="" class="base-input-dev-1 required" name="add[amount][rep_id]">
+								  </div>
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Refundable?</div>
+									<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+									  <li>
+										<input type="radio" value="0" name="add[refund][rep_id]" id="ad_rep_id" >
+										<label for="ad_rep_id">No</label>
+									  </li>
+									  <li>
+										<input type="radio" value="1" name="add[refund][rep_id]" id="ad_rep_id_y" >
+										<label for="ad_rep_id_y">Yes</label>
+									  </li>
+									</ul>
+								  </div>
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Required?</div>
+									<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+									  <li>
+										<input type="radio" value="0" name="add[required][rep_id]" id="ad_r_rep_id" >
+										<label for="ad_r_rep_id">No</label>
+									  </li>
+									  <li>
+										<input type="radio" value="1" name="add[required][rep_id]" id="ad_r_rep_id_y" >
+										<label for="ad_r_rep_id_y">Yes</label>
+									  </li>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+							  <input type="hidden" name="add[id][rep_id]" />
+							</div>
+							{% for fee in event.fees.additional %}
+							<div class="row line ad_fee">
+							  <div class="col-lg-2 col-xs-1 col-xxs-2"><a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md remove_ad">&#215;</a></div>
+							  <div class="col-lg-3 col-md-3 col-xs-5 col-xs-10 col-xxs-10">
+								<div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">What are these fees?</div>
+								<input type="text" value="{{ fee.title }}" class="base-input-dev-1 required" name="additional[title][{{ loop.index }}]">
+							  </div>
+							  <div class="col-lg-6 col-md-7 col-xs-6 col-xxs-10 col-xxs-offset-2">
+								<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+								<div class="row">
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Fee Amount ($)</div>
+									<input type="text" value="{{ fee.amount }}" class="base-input-dev-1 number required" name="additional[amount][{{ loop.index }}]">
+								  </div>
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Refundable?</div>
+									<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+									  <li>
+										<input type="radio" value="0" name="additional[refund][{{ loop.index }}]" id="ad_{{ loop.index }}" {{ fee.refund == 0 ? 'checked' : '' }}>
+										<label for="ad_{{ loop.index }}">No</label>
+									  </li>
+									  <li>
+										<input type="radio" value="1" name="additional[refund][{{ loop.index }}]" id="ad_{{ loop.index }}_y" {{ fee.refund == 1 ? 'checked' : '' }}>
+										<label for="ad_{{ loop.index }}_y">Yes</label>
+									  </li>
+									</ul>
+								  </div>
+								  <div class="col-md-4 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Required?</div>
+									<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+									  <li>
+										<input type="radio" value="0" name="additional[required][{{ loop.index }}]" id="ad_r_{{ loop.index }}" {{ fee.required == 0 ? 'checked' : '' }}>
+										<label for="ad_r_{{ loop.index }}">No</label>
+									  </li>
+									  <li>
+										<input type="radio" value="1" name="additional[required][{{ loop.index }}]" id="ad_r_{{ loop.index }}_y" {{ fee.required == 1 ? 'checked' : '' }}>
+										<label for="ad_r_{{ loop.index }}_y">Yes</label>
+									  </li>
+									</ul>
+								  </div>
+								</div>
+							  </div>
+							  <input type="hidden" name="additional[id][{{ loop.index }}]" />
+							</div>
+							{% endfor %}
+						  </div>
+						  <div class="row">
+							<div class="col-md-10 col-md-offset-2">
+							  <div class="col-lg-3 col-xs-12 pull-right"><a href="#" class="add-new-link pb-anl w-auto m-0" id="add_additional"><span>+</span>Add More</a></div>
+							</div>
+						  </div>
+						</div>
+						<div id="det-3" class="box visible">
+						  <div class="col-md-12">
+							<div class="row visible-md visible-lg dev-1-mt20">
+							  <div class="col-lg-2 col-lg-offset-2 col-md-offset-1 dev-1-c_gray dev-1-m10">What are these fees?</div>
+							  <div class="col-lg-8 col-md-7 dev-1-c_gray dev-1-m10">
+								<div class="row">
+								  <div class="col-xs-3">Frequency</div>
+								  <div class="col-xs-3">First due date</div>
+								  {% if participant_types|length > 1 %}
+								  <div class="col-xs-3">Ticket Type</div>
+								  {% endif %}
+								  <div class="col-xs-3">Fees ($)</div>
+								</div>
+							  </div>
+							</div>
+							
+							{% for d in event.fees.donations %}
+							<div class="row line donation">
+							  <div class="col-lg-1 col-xs-1 col-xxs-2 col-lg-offset-1"><a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md del_donation" >&#215;</a></div>
+							  <div class="col-lg-2 col-xs-10 col-xxs-10">
+								<div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">What are these fees?</div>
+								<input type="text" value="{{ d.title }}" class="base-input-dev-1 required" name="donation[title][]">
+							  </div>
+							  <div class="col-lg-8 col-md-7 col-xs-6 col-xxs-10 col-xxs-offset-2">
+								<div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+								<div class="row">
+								  <div class="col-md-3 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Frequency</div>
+									<div class="select-box w-full">
+									  <select class="select text-center" name="donation[freq][]">
+										<option value="week" {{ d.freq == 'week' ? 'selected' : '' }}>Weekly</option>
+										<option value="month" {{ d.freq == 'month' ? 'selected' : '' }}>Monthly</option>
+										<option value="year" {{ d.freq == 'year' ? 'selected' : '' }}>Yearly</option>
+									  </select><i class="icon-right"></i>
+									</div>
+								  </div>
+								  <div class="col-md-3 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">First due date</div>
+									<input type="text" value="{{ d.date }}" class="base-input-dev-1 open-datepicker only-date" name="donation[date][]">
+								  </div>
+								  {% if participant_types|length > 0 %}
+								  <div class="col-md-3 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Participant type</div>
+									<div class="select-box w-full">
+									  <select class="select text-center" name="donation[type][]">
+										{% for participant in participant_types %}
+										<option value="{{ participant.id }}" {{ participant.id == d.type ? 'selected' : '' }}>{{ participant.name }}</option>
+										{% endfor %}
+									  </select><i class="icon-right"></i>
+									</div>
+								  </div>
+								  {% endif %}
+								  <div class="col-md-3 col-xs-6">
+									<div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Fees ($)</div>
+									<input type="text" value="{{ d.amount }}" class="base-input-dev-1 small-width text-center number required" name="donation[amount][]">
+								  </div>
+								</div>
+							  </div>
+							  <input type="hidden" name="donation[id][]" />
+							</div>
+							
+							{% endfor %}
+						  </div>
+						  <div class="row">
+							<div class="col-md-10 col-md-offset-2">
+							  <div class="col-lg-3 col-xs-12 pull-right"><a href="#" class="add-new-link pb-anl w-auto m-0" id="add_donation"><span>+</span>Add More</a></div>
+							</div>
+						  </div>
+						</div>
+						<div id="det-4" class="box visible">
+						  <div class="row">
+							<div class="col-md-8 dev-1-text-label">Do you want Eventtrx to collect registration payments</div>
+							<div class="col-md-2">
+							  <ul data-tab-selector-id="diff-fees" class="radios-styled-dev-1 simple inline dev-1-mb30 tab-selector">
+								<li>
+								  <input type="radio" value="0" name="data[fees][collect]" id="option15" data-tab-id="diff-fees-2" {{ event.fees.collect is not defined or event.fees.collect == 0 ? 'checked' }}>
+								  <label for="option15">No</label>
+								</li>
+								<li>
+								  <input type="radio" value="1" name="data[fees][collect]" id="option16" data-tab-id="diff-fees-1" {{ event.fees.collect is defined and event.fees.collect == 1 ? 'checked' : '' }}>
+								  <label for="option16">Yes</label>
+								</li>
+							  </ul>
+							</div>
+						  </div>
+						  <div id="diff-fees-1" data-tab-selector-id="diff-fees" class="tab-content {{ event.fees.collect is not defined or event.fees.collect == 0 ? 'hidden' : '' }}">
+							<div class="row">
+							  <div class="col-md-8 dev-1-text-label">Do want to charge the processing fees back to the participant?</div>
+							  <div class="col-md-2">
+								<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+								  <li>
+									<input type="radio" value="option19" name="data[fees][bank_fee]" id="option19" {{ event.fees.bank_fee is not defined or event.fees.bank_fee == 0 ? 'checked' }}>
+									<label for="option19">No</label>
+								  </li>
+								  <li>
+									<input type="radio" value="option20" name="data[fees][bank_fee]" id="option20" {{ event.fees.bank_fee is defined and event.fees.bank_fee == 1 ? 'checked' : '' }}>
+									<label for="option20">Yes</label>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-8 dev-1-text-label dev-1-text-label-comm">EventTrx, LLC uses a PCI compliant payment provider. You can be assured that your financial information is guarded with utmost security and sensitivity.</div>
+							  <div class="col-md-4"><a href="#" class="add-new-link"><span><i class="icon-view fz-medium"></i></span>Show me difference</a></div>
+							</div>
+							<div class="row">
+							  <div class="col-md-10 col-md-offset-2 dev-1-c_gray dev-1-m30">All registration fees, deposits, participant payments will be transferred to:</div>
+							  <div class="col-md-6 col-md-offset-2">
+								<div class="select-box w-full dev-1-mb30">
+								  <select class="select">
+									<option value="option1">STRIPE TEST BANK account ending in xxxx6789</option>
+									<option value="option2">STRIPE TEST BANK account ending in xxxx6789</option>
+									<option value="option2">STRIPE TEST BANK account ending in xxxx6789</option>
+								  </select><i class="icon-right"></i>
+								</div>
+							  </div>
+							  <div class="col-md-4 dev-1-mb30"><a href="ajax/change_payout_methods.html" class="add-new-link ajax-sidebar"><span><i class="icon-edit-link fz-medium"></i></span>Change</a></div>
+							</div>
+						  </div>
+						  <div id="diff-fees-2" data-tab-selector-id="diff-fees" class="tab-content {{ event.fees.collect is defined and event.fees.collect == 1 ? 'hidden' }}">
+							<div class="row">
+							  <div class="col-md-4 dev-1-text-label">How would you like the participants to pay the fees?</div>
+							  <div class="col-md-6">
+								<ul data-tab-selector-id="fees-pay" class="radios-styled-dev-1 inline dev-1-mb30 tab-selector">
+								  <li>
+									<input type="radio" value="mail" name="data[fees][participant_pay]" id="option17" data-tab-id="fees-pay-2" {{ event.fees.participant_pay is not defined or event.fees.participant_pay == 'mail' ? 'checked' }}>
+									<label for="option17">Mail in the check</label>
+								  </li>
+								  <li>
+									<input type="radio" value="bring_to_event" name="data[fees][participant_pay]" id="option18" data-tab-id="fees-pay-1" {{ event.fees.participant_pay is defined and event.fees.participant_pay == 'bring_to_event' ? 'checked' : '' }}>
+									<label for="option18">Bring the payment to the event</label>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							<div id="fees-pay-1" data-tab-selector-id="fees-pay" class="tab-content {{ event.fees.participant_pay is defined and event.fees.participant_pay == 'mail' ? 'hidden' : '' }}">
+							  <div class="row">
+								<div class="col-md-4 dev-1-text-label">Additional Payment Instructions</div>
+								<div class="col-md-6">
+								  <textarea class="base-textarea-dev-1" name="data[fees][payment_instructions]">{{ event.fees.payment_instructions|default('') }}</textarea>
+								</div>
+							  </div>
+							</div>
+							<div id="fees-pay-2" data-tab-selector-id="fees-pay" class="tab-content {{ event.fees.participant_pay is not defined or event.fees.participant_pay == 'bring_to_event' ? 'hidden' }}">
+							  <div class="row">
+								<div class="col-md-8 col-md-offset-2 dev-1-text-label-comm text-right">If you would like to display an address where participants can mail in their registration fees, please complete the information below. This information will be displayed on the registration page and also will be emailed to the participants upon registration.</div>
+							  </div>
+							  <div class="row">
+								<div class="col-md-12">
+								  <div class="col-md-6">
+									<div class="col-md-6 dev-1-text-label">Last day to receive the payment</div>
+									<div class="col-md-6">
+									  <input type="text" class="base-input-dev-1 w-full open-datepicker only-date" name="data[fees][last_day_pay]" value="{{ event.fees.last_day_pay|default('') }}">
+									</div>
+								  </div>
+								  <div class="col-md-6">
+									<div class="col-md-4 dev-1-text-label">Make checks payable to</div>
+									<div class="col-md-6">
+									  <input type="text" class="base-input-dev-1 w-full " name="data[fees][check_to]" value="{{ event.fees.check_to|default('') }}">
+									</div>
+								  </div>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="col-md-12">
+								  <div class="col-md-3 dev-1-text-label">Mailing Address where the participants can send the payments</div>
+								  <div class="col-md-5 dev-1-text-label">
+									<div class="select-box w-full">
+									  <select class="select" id="payment_location" name="data[fees][payment_location]">
+										{% set loc_id = event.feed.payment_location|default('') %}
+										{% for location in locations %}
+										  <option value="{{ location.id }}" {{ (loc_id == location.id) ? 'selected' }}>{{ location.address }}, {{ location.city }}</option>
+										{% endfor %}
+									  </select><i class="icon-right"></i>
+									</div>
+								  </div>
+								  <div class="col-lg-3 col-xs-12 col-xs-offset-1 col-lg-offset-0 col-xxs-offset-2"><a href="{{ path('add_location') }}" class="add-new-link ajax-sidebar"><span>+</span>Add new address</a></div>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						  
+						</div>
+						<div id="det-5" class="box visible">
+						  <div class="row">
+							<div class="col-md-9 col-md-offset-2">
+							  <div class="dev-1-mb30">
+								<h2 class="dev-1-p0">Event Cancellation</h2>
+							  </div>
+							  <div class="page-description small dev-1-c_dark">
+								<p>If you decide to cancel this event for any reason, you can specify how much refund to offer to the paid participants. EventTrx will handle refunds if we are collecting the registration payments. Please see Payment Processing tab to setup registration payment collection.</p>
+								<p>You must have sufficient balance in your account for us to process refunds.</p>
+							  </div>
+							  <div class="row">
+								<div class="col-md-4 dev-1-text-label">% of refund offered to ticket holders</div>
+								<div class="col-md-2">
+								  <input type="text" value="{{ event.fees.refund_percent is defined ? event.fees.refund_percent : '0'}}" class="base-input-dev-1 w-full text-center" name="data[fees][refund_percent]">
+								</div>
+								<div class="col-md-4 dev-1-text-label text-left">(include any processing fees paid by the participants)</div>
+							  </div>
+							  <div class="row psi-text dev-1-p0"></div>
+							</div>
+						  </div>
+						  <div class="row">
+							<div class="col-md-9 col-md-offset-2">
+							  <div class="dev-1-m30">
+								<h2 class="dev-1-p0">Registration Cancellation</h2>
+							  </div>
+							  <div class="page-description small dev-1-c_dark">
+								<p>If you allow your participants cancel their registration, you can specify any refunds that you want to offer them. You can offer cancellations but still need not offer any refunds.</p>
+							  </div>
+							</div>
+						  </div>
+						  <div class="row">
+							<div class="col-md-11">
+							  <div class="col-md-2 dev-1-text-label">Do you want to offer refunds for cancellations?</div>
+							  <div class="col-md-2">
+								<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+								  <li>
+									<input type="radio" value="0" name="data[fees][refund_cancelation]" id="option21" class="refund_cancelation" {{ event.fees.refund_cancelation is not defined or event.fees.refund_cancelation == 0 ? 'checked' : ''}}>
+									<label for="option21">No</label>
+								  </li>
+								  <li>
+									<input type="radio" value="1"  name="data[fees][refund_cancelation]" id="option22" class="refund_cancelation" {{ event.fees.refund_cancelation is defined and event.fees.refund_cancelation == 1 ? 'checked' : ''}}>
+									<label for="option22">Yes</label>
+								  </li>
+								</ul>
+							  </div>
+							  <div class="col-md-8 dev-1-text-label text-left">Specify the portion of the registration fees that will be refunded. Non-refundable additional fees are not included.</div>
+							</div>
+						  </div>
+						  <div class="row {{ event.fees.refund_cancelation is not defined or event.fees.refund_cancelation == 0 ? 'hidden' : ''}}" id="refund_cancelation">
+							<div class="col-md-12">
+							  <div class="row visible-md visible-lg dev-1-mt20">
+								<div class="col-lg-3 col-md-3 col-lg-offset-2 col-md-offset-1 dev-1-c_gray dev-1-m10">If cancelled by</div>
+								<div class="col-lg-6 col-md-7 dev-1-c_gray dev-1-m10">
+								  <div class="row">
+									<div class="col-xs-3">Refund %</div>
+									<div class="col-xs-3">or Refund $</div>
+								  </div>
+								</div>
+							  </div>
+							  
+							  {% for refund in event.fees.refund %}
+							  <div class="row line refound_cancel_line">
+								<div class="col-lg-2 col-xs-1 col-xxs-2"><a href="#" class="small-icon-dev-1 dev-1-c_red  fz-big pull-right lh-60- lh-150-xs-md del_refund">&#215;</a></div>
+								<div class="col-lg-3 col-md-3 col-xs-5 col-xs-10 col-xxs-10">
+								  <div class="dev-1-c_gray dev-1-m10 visible-xs visible-sm">If cancelled by</div>
+								  <input type="text"  class="base-input-dev-1 w-full" value="{{ refund.date }}" name="refund[date][]">
+								</div>
+								<div class="col-lg-6 col-md-7 col-xs-6 col-xxs-10 col-xxs-offset-2">
+								  <div class="dev-1-c_gray dev-1-mt10 visible-xs visible-sm"></div>
+								  <div class="row">
+									<div class="col-md-3 col-xs-12">
+									  <div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">Refund %</div>
+									  <input type="text" value="{{ refund.amount }}" name="refund[amount][]" class="base-input-dev-1 w-full">
+									</div>
+									<div class="col-md-3 col-xs-12">
+									  <div class="dev-1-c_gray visible-xs visible-sm dev-1-m10">or Refund $</div>
+									  <input type="text" value="{{ refund.or_amount }}" name="refund[or_amount][]" class="base-input-dev-1 w-full">
+									</div>
+								  </div>
+								</div>
+								<input type="hidden" name="refund[id][]"  />
+							  </div>
+								{% endfor %}
+							  <div class="row">
+								<div class="col-md-10 col-md-offset-2">
+								  <div class="col-lg-3 col-xs-12 pull-right"><a href="#" class="add-new-link pb-anl w-auto m-0" id="add_refund"><span>+</span>Add More</a></div>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						  
+						</div>
+						<div id="det-6" class="box visible">
+						  <div class="row">
+							<div class="row">
+							  <div class="col-md-8 col-md-offset-2 dev-1-mb30">
+								<p>If you do not want to offer any type discount at all, you can skip this section by clicking on Continue.</p>
+							  </div>
+							  <div class="col-md-4 dev-1-text-label lh-60">Discount type</div>
+							  <div class="col-md-6">
+								<ul data-tab-selector-id="discount-selector" class="radios-styled-dev-1 inline dev-1-mb30 tab-selector">
+								  <li>
+									<input type="radio" value="early" name="data[fees][discount_type]" id="option23" data-tab-id="discount-1" {{ event.fees.discunt_type is not defined or event.fees.discunt_type == 'early' ? 'checked' : ''}}>
+									<label for="option23">Early Registrations</label>
+								  </li>
+								  <li>
+									<input type="radio" value="multiple" name="data[fees][discount_type]" id="option24" data-tab-id="discount-2" {{ event.fees.discunt_type is defined and event.fees.discunt_type == 'multiple' ? 'checked' : ''}}>
+									<label for="option24">Multiple Registrations</label>
+								  </li>
+								</ul>
+							  </div>
+							</div>
+							<div id="discount-1" data-tab-selector-id="discount-selector" class="tab-content hidden">
+							  <div class="row">
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="page-description small dev-1-c_dark">
+									<p>You can offer discounts based on registration dates. You can define multiple early registration discounts each ending on different dates. Please note the fees specified here are the discounted price and not the discount. e.g. if the full price is $100 and you offer $25 discount, enter $75 as the discount fee.</p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Discount Name</div>
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Register By</div>
+								  {% for participant in participant_types %}
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">{{ participant.name }}</div>
+								  {% endfor %}
+								</div>
+								
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3"><a href="#" class="small-icon-dev-1 dev-1-c_red fz-big pull-right lh-60- lh-150-xs-md dev-1-del">&#215;</a>
+									<input type="text" value="Discount" class="base-input-dev-1 w-full">
+								  </div>
+								  <div class="col-md-3 datepicker-block">
+									<input type="text" class="base-input-dev-1 w-full open-datepicker only-date">
+								  </div>
+								  
+								  {% for participant in participant_types %}
+								  <div class="col-md-3">
+									<input type="text" value="$10.00" class="base-input-dev-1 w-full">
+								  </div>
+								 {% endfor %}
+								 
+								  <div class="col-lg-3 col-xs-12 pull-right"><a href="ajax/add_new_field.html" class="add-new-link pb-anl w-auto m-0 ajax-sidebar"><span>+</span>Add More</a></div>
+								</div>
+								
+							  </div>
+							</div>
+							<div id="discount-2" data-tab-selector-id="discount-selector" class="tab-content">
+							  <div class="row">
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="page-description small dev-1-c_dark">
+									<p>You can charge the first 'n' participants full price and then charge additional participants at a reduced rate.</p>
+									<p>If you do not want to offer colume discount for certain pricing scheme (e.g. early registration), you can leave the corresponding amount empty.</p>
+									<p>You can skip this section if you do not want to offer colume discounts.</p>
+								  </div>
+								</div>
+							  </div>
+							  <div class="row">
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Participant type</div>
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Register</div>
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Full Price</div>
+								  <div class="col-md-3 dev-1-c_gray dev-1-m10">Early Discount</div>
+								</div>
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3"><span class="lh-60 dev-1-c_dark">Adult</span></div>
+								  <div class="col-md-3"><span class="base-input-help left">first</span>
+									<input type="text" value="10" class="base-input-dev-1 small-input pull-left text-center"><span class="base-input-help right">at</span>
+								  </div>
+								  <div class="col-md-3 dev-1-c_gray"><span class="lh-60">$20.00</span></div>
+								  <div class="col-md-3 dev-1-c_gray"><span class="lh-60">$10.00</span></div>
+								</div>
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3 col-md-offset-3"><span class="base-input-help">and then rest at</span></div>
+								  <div class="col-md-3 dev-1-c_gray">
+									<input type="text" value="10" class="base-input-dev-1 w-full">
+								  </div>
+								  <div class="col-md-3 dev-1-c_gray">
+									<input type="text" value="5" class="base-input-dev-1 w-full">
+								  </div>
+								</div>
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3"><span class="lh-60 dev-1-c_dark">Kid (under 15)</span></div>
+								  <div class="col-md-3"><span class="base-input-help left">first</span>
+									<input type="text" value="20" class="base-input-dev-1 small-input pull-left text-center"><span class="base-input-help right">at</span>
+								  </div>
+								  <div class="col-md-3 dev-1-c_gray"><span class="lh-60">$10.00</span></div>
+								  <div class="col-md-3 dev-1-c_gray"><span class="lh-60">$5.00</span></div>
+								</div>
+								<div class="col-md-8 col-md-offset-2">
+								  <div class="col-md-3 col-md-offset-3"><span class="base-input-help">and then rest at</span></div>
+								  <div class="col-md-3 dev-1-c_gray">
+									<input type="text" value="5" class="base-input-dev-1 w-full">
+								  </div>
+								  <div class="col-md-3 dev-1-c_gray">
+									<input type="text" value="3" class="base-input-dev-1 w-full">
+								  </div>
+								</div>
+							  </div>
+							</div>
+						  </div>
+						</div>
+					  </div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="dev-1-bg-beige">
+			  <div class="container">
+				<div class="row">
+				  <div class="col-xs-12 col-lg-offset-2 dev-1-m30">
+					<input type="submit" class="green-btn dev-1-m30" value="Continue" /><a href="#" class="gray-btn dev-1-m30 w-auto">Cancel</a></div>
+				</div>
+			  </div>
+			</div>
+		</form>
+      </div>
+{% endblock %}
+
+{% block footer_script %}
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

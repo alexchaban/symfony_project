@@ -1,0 +1,1380 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+    <title>EventTrx.com</title>
+    <meta name="description" content="description">
+    <meta name="keywords" content="keywords">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/touch/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/images/touch/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/images/touch/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/images/touch/apple-touch-icon-144x144.png') }}">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="{{ asset('assets/images/og-logo.png') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <!--[if lt IE 9]>
+      <script src="{{ asset('assets/js/html5.js') }}"></script>
+      <script src="{{ asset('assets/js/respond.js') }}"></script>
+    <![endif]-->
+  </head>
+<body class="home-page">
+    <div class="main">
+        <header>
+            <div class="wrap">
+                <div class="logo">
+                    <a href="{{ path('app_homepage') }}">
+                        <span>EventTrx</span>
+                        <em>Your Event - Our Solution</em>
+                    </a>
+                </div><!-- /.logo -->
+                <div class="menu-user">
+                    <nav>
+                        <ul>
+                            <li><a href="#"><span class="icon-search"></span></a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="#">How it Works</a></li>
+                        </ul>
+                    </nav>                              
+                    <div class="user-links">
+                        <a href="#login-box" class="login open-fixed-sidebar">Login</a>
+                        <a href="#registration-box" class="sign-up open-fixed-sidebar">Sign up</a>
+                    </div><!-- /.user-links -->
+                </div><!-- /.menu-user -->
+                <a href="#" class="mobile-menu"></a>
+            </div><!-- /.wrap -->
+        </header>
+        <div class="spanning">
+            <div class="slider">
+                <div class="slider-slide" style="background-image: url({{ asset('assets/upload/slide.jpg') }})">
+                    <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                    <div class="slider-links">
+                        <a href="#">Participants</a>
+                        <a href="#">Coordinators</a>
+                    </div><!-- /.slider-links -->
+                </div><!-- /.slider-slide -->
+                <div class="slider-slide" style="background-image: url({{ asset('assets/upload/slide-2.jpg') }})">
+                    <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                    <div class="slider-links">
+                        <a href="#">Participants</a>
+                        <a href="#">Coordinators</a>
+                    </div><!-- /.slider-links -->
+                </div><!-- /.slider-slide -->
+                <div class="slider-slide" style="background-image: url({{ asset('assets/upload/slide-3.jpg') }})">
+                    <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                    <div class="slider-links">
+                        <a href="#">Participants</a>
+                        <a href="#">Coordinators</a>
+                    </div><!-- /.slider-links -->
+                </div><!-- /.slider-slide -->
+                <div class="slider-slide" style="background-image: url({{ asset('assets/upload/slide-4.jpg') }})">
+                    <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                    <div class="slider-links">
+                        <a href="#">Participants</a>
+                        <a href="#">Coordinators</a>
+                    </div><!-- /.slider-links -->
+                </div><!-- /.slider-slide -->
+            </div><!-- /.slider -->
+            <div class="wrap">
+                <div class="search-box">
+                    <div class="sb-item">
+                        <div class="sb-category clearfix">
+                            <div class="sbc-item">
+                                <a href="#" class="open-sb-category"><span>Category</span> All<em class="icon-open"></em></a>
+                                <div class="sbc-dropdown">
+                                    <div class="dropdown-search-box">
+                                        <div class="checkbox-box">
+                                            <input type="checkbox" class="checkbox" id="checkbox">
+                                            <label for="checkbox"><span></span>Select All</label>
+                                        </div><!-- /.checkbox-box -->
+                                        <div class="custom-scroll scroll-box">
+                                            <div class="event-row clearfix">
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-1">
+                                                        <label for="checkbox-1"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2">
+                                                        <label for="checkbox-2"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3">
+                                                        <label for="checkbox-3"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-4">
+                                                        <label for="checkbox-4"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-5">
+                                                        <label for="checkbox-5"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-6">
+                                                        <label for="checkbox-6"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-7">
+                                                        <label for="checkbox-7"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-8">
+                                                        <label for="checkbox-8"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-9">
+                                                        <label for="checkbox-9"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-10">
+                                                        <label for="checkbox-10"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-11">
+                                                        <label for="checkbox-11"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-12">
+                                                        <label for="checkbox-12"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-13">
+                                                        <label for="checkbox-13"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-14">
+                                                        <label for="checkbox-14"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.scroll-box -->
+                                    </div><!-- /.dropdown-search-box -->
+                                </div><!-- /.sbc-dropdown -->
+                            </div><!-- /.sbc-item -->
+                            <div class="sbc-item">
+                                <a href="#" class="open-sb-category"><span>City</span> Chicago<em class="icon-open"></em></a>
+                                <div class="sbc-dropdown">
+                                    <div class="dropdown-search-box">
+                                        <div class="checkbox-box">
+                                            <input type="checkbox" class="checkbox" id="checkbox-all-2">
+                                            <label for="checkbox-all-2"><span></span>Select All</label>
+                                        </div><!-- /.checkbox-box -->
+                                        <div class="custom-scroll scroll-box">
+                                            <div class="event-row clearfix">
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-1">
+                                                        <label for="checkbox-2-1"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-2">
+                                                        <label for="checkbox-2-2"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-3">
+                                                        <label for="checkbox-2-3"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-4">
+                                                        <label for="checkbox-2-4"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-5">
+                                                        <label for="checkbox-2-5"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-6">
+                                                        <label for="checkbox-2-6"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-7">
+                                                        <label for="checkbox-2-7"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-8">
+                                                        <label for="checkbox-2-8"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-9">
+                                                        <label for="checkbox-2-9"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-10">
+                                                        <label for="checkbox-2-10"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-11">
+                                                        <label for="checkbox-2-11"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-12">
+                                                        <label for="checkbox-2-12"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-13">
+                                                        <label for="checkbox-2-13"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-2-14">
+                                                        <label for="checkbox-2-14"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.scroll-box -->
+                                    </div><!-- /.dropdown-search-box -->
+                                </div><!-- /.sbc-dropdown -->
+                            </div><!-- /.sbc-item -->
+                            <div class="sbc-item">
+                                <a href="#" class="open-sb-category"><span>State</span> Chicago<em class="icon-open"></em></a>
+                                <div class="sbc-dropdown">
+                                    <div class="dropdown-search-box">
+                                        <div class="checkbox-box">
+                                            <input type="checkbox" class="checkbox" id="checkbox-all-3">
+                                            <label for="checkbox-all-3"><span></span>Select All</label>
+                                        </div><!-- /.checkbox-box -->
+                                        <div class="custom-scroll scroll-box">
+                                            <div class="event-row clearfix">
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-1">
+                                                        <label for="checkbox-3-1"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-2">
+                                                        <label for="checkbox-3-2"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-3">
+                                                        <label for="checkbox-3-3"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-4">
+                                                        <label for="checkbox-3-4"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-5">
+                                                        <label for="checkbox-3-5"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-6">
+                                                        <label for="checkbox-3-6"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-7">
+                                                        <label for="checkbox-3-7"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                                <div class="column col-50">
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-8">
+                                                        <label for="checkbox-3-8"><span></span>Alaska</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-9">
+                                                        <label for="checkbox-3-9"><span></span>Arizona</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-10">
+                                                        <label for="checkbox-3-10"><span></span>Arkansas</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-11">
+                                                        <label for="checkbox-3-11"><span></span>California</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-12">
+                                                        <label for="checkbox-3-12"><span></span>Colorado</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-13">
+                                                        <label for="checkbox-3-13"><span></span>Idaho</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                    <div class="checkbox-box">
+                                                        <input type="checkbox" class="checkbox" id="checkbox-3-14">
+                                                        <label for="checkbox-3-14"><span></span>Illinois</label>
+                                                    </div><!-- /.checkbox-box -->
+                                                </div><!-- /.column -->
+                                            </div><!-- /.row -->
+                                        </div><!-- /.scroll-box -->
+                                    </div><!-- /.dropdown-search-box -->
+                                </div><!-- /.sbc-dropdown -->
+                            </div><!-- /.sbc-item -->
+                        </div><!-- /.sb-category -->
+                        <form action="#"> 
+                            <input type="text" class="input-text">
+                            <button class="search-button"><span class="icon-search"></span></button>
+                        </form>
+                    </div><!-- /.sb-item -->
+                    <div class="search-result clearfix">
+                        <div class="sr-quantity">Found 12 events</div>
+                        <div class="sr-list clearfix">
+                            <div class="srl-left">
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <h2><a href="#">Party on the year 2015 in New York</a></h2>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Description</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Hosted by</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>Mark Hilson</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Category</span>
+                                        <p>Holiday</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>When</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>15 November  →  23 November 2015</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Where</span>
+                                        <p>New York, ave.Nilson 12/285a</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>How much</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <strong>$100</strong>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <a href="#" class="green-buton">Join</a>
+                        </div><!-- /.sr-list -->
+                        <div class="sr-list clearfix">
+                            <div class="srl-left">
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <h2><a href="#">Party on the year 2015 in New York</a></h2>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Description</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Hosted by</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>Mark Hilson</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Category</span>
+                                        <p>Holiday</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>When</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>15 November  →  23 November 2015</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Where</span>
+                                        <p>New York, ave.Nilson 12/285a</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>How much</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <strong>$100</strong>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <a href="#" class="green-buton">Join</a>
+                        </div><!-- /.sr-list -->
+                        <div class="sr-list clearfix">
+                            <div class="srl-left">
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <h2><a href="#">Party on the year 2015 in New York</a></h2>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Description</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>Hosted by</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>Mark Hilson</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Category</span>
+                                        <p>Holiday</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>When</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <div class="event-row clearfix">
+                                    <div class="column col-70">
+                                        <p>15 November  →  23 November 2015</p>
+                                    </div><!-- /.column -->
+                                    <div class="column col-30">
+                                        <span>Where</span>
+                                        <p>New York, ave.Nilson 12/285a</p>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <div class="srl-left">
+                                <span>How much</span>
+                            </div><!-- /.srl-left -->
+                            <div class="srl-content">
+                                <strong>$100</strong>
+                            </div><!-- /.srl-content -->
+                            <div class="clear"></div>
+                            <a href="#" class="green-buton">Join</a>
+                        </div><!-- /.sr-list -->
+                        <div class="search-links clearfix">
+                            <a href="#">Show 16 more<span class="icon-right"></span></a>
+                            <a href="#">Show all (478)<span class="icon-right"></span></a>
+                        </div><!-- /.search-links -->
+                    </div><!-- /.search-result -->
+                </div><!-- /.search-box -->
+            </div><!-- /.wrap -->
+            <div class="upcoming-events">
+                <div class="page-title">
+                    <p><a href="#" class="ue-link">Chicago, Illinois<span class="icon-open"></span></a></p>
+                    <h2>Upcoming Events</h2>
+                    <div class="ue-dropdown"></div>
+                </div><!-- /.page-title -->
+                <div class="events-tabs">
+                    <ul>
+                        <li class="active"><a href="#" data-events-tabs="#det-1">All Events</a></li>
+                        <li><a href="#" data-events-tabs="#det-2">Arts</a></li>
+                        <li><a href="#" data-events-tabs="#det-3">Recreation</a></li>
+                        <li><a href="#" data-events-tabs="#det-4">Corporate</a></li>
+                        <li><a href="#" data-events-tabs="#det-5">Charity</a></li>
+                        <li><a href="#" data-events-tabs="#det-6">Classes</a></li>
+                    </ul>
+                    <div class="events-more">
+                        <a href="#" class="open-events-more">...</a>
+                        <div class="events-more-dropdown">
+                            <div class="custom-scroll">
+                                <ul>
+                                    <li><a href="#" data-events-tabs="#det-1">Event Academy</a></li>
+                                    <li><a href="#" data-events-tabs="#det-2">Classes & Workshops</a></li>
+                                    <li><a href="#" data-events-tabs="#det-3">Conferences</a></li>
+                                    <li><a href="#" data-events-tabs="#det-4">Endurance</a></li>
+                                    <li><a href="#" data-events-tabs="#det-5">Food & Drink</a></li>
+                                    <li><a href="#" data-events-tabs="#det-6">Music</a></li>
+                                    <li><a href="#" data-events-tabs="#det-1">Nonprofits & Fundraisers</a></li>
+                                    <li><a href="#" data-events-tabs="#det-2">Performing & Visual Arts</a></li>
+                                    <li><a href="#" data-events-tabs="#det-3">Politics</a></li>
+                                    <li><a href="#" data-events-tabs="#det-4">Reunions</a></li>
+                                    <li><a href="#" data-events-tabs="#det-1">Event Academy</a></li>
+                                    <li><a href="#" data-events-tabs="#det-2">Classes & Workshops</a></li>
+                                    <li><a href="#" data-events-tabs="#det-3">Conferences</a></li>
+                                    <li><a href="#" data-events-tabs="#det-4">Endurance</a></li>
+                                    <li><a href="#" data-events-tabs="#det-5">Food & Drink</a></li>
+                                    <li><a href="#" data-events-tabs="#det-6">Music</a></li>
+                                    <li><a href="#" data-events-tabs="#det-1">Nonprofits & Fundraisers</a></li>
+                                    <li><a href="#" data-events-tabs="#det-2">Performing & Visual Arts</a></li>
+                                    <li><a href="#" data-events-tabs="#det-3">Politics</a></li>
+                                    <li><a href="#" data-events-tabs="#det-4">Reunions</a></li>
+                                </ul>
+                            </div><!-- /.custom-scroll -->
+                        </div><!-- /.events-more-dropdown -->
+                    </div><!-- /.events-more -->
+                </div><!-- /.events-tabs -->
+                <div id="det-1" class="box visible">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+                <div id="det-2" class="box">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+                <div id="det-3" class="box">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+                <div id="det-4" class="box">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+                <div id="det-5" class="box">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+                <div id="det-6" class="box">
+                    <div class="slider-event">
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">Free</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 499</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                        <div class="se-slide">
+                            <div class="event">
+                                <span>15.02 — 12/24/15</span>
+                                <h2><a href="#">Art Gallery Opening 2015 in New York</a></h2>
+                                <p>Chicago, Illinois ave.Nilson 12/285a</p>
+                                <div class="se-bottom">
+                                    <div class="price">$ 100</div>
+                                    <a href="#">Join</a>
+                                </div><!-- /.se-bottom -->
+                            </div><!-- /.event -->
+                        </div><!-- /.se-slide -->
+                    </div><!-- /.slider-event -->
+                </div><!-- /.box -->
+            </div><!-- /.upcoming-events -->
+            <div class="features">
+                <div class="page-title">
+                    <p>Lorem ipsum dolor</p>
+                    <h2>Our Features</h2>
+                </div><!-- /.page-title -->
+                <div class="features-slider event-row clearfix">
+                    <div class="column col-20">
+                        <div class="features-item">
+                            <div class="fi-icon">
+                                <span class="icon-create-event"></span>
+                            </div><!-- /.fi-icon -->
+                            <h2><a href="#">Create Event</a></h2>
+                            <p>Build your perfect in just minutes with the Event Builder.</p>
+                            <a href="#" class="read-more">Read more <span class="icon-right"></span></a>
+                        </div><!-- /.features-item -->
+                    </div><!-- /.column -->
+                    <div class="column col-20">
+                        <div class="features-item">
+                            <div class="fi-icon">
+                                <span class="icon-registr-event"></span>
+                            </div><!-- /.fi-icon -->
+                            <h2><a href="#">Register for Event</a></h2>
+                            <p>Find your next experience now. Search by category or date.</p>
+                            <a href="#" class="read-more">Read more <span class="icon-right"></span></a>
+                        </div><!-- /.features-item -->
+                    </div><!-- /.column -->
+                    <div class="column col-20">
+                        <div class="features-item">
+                            <div class="fi-icon">
+                                <span class="icon-invitations"></span>
+                            </div><!-- /.fi-icon -->
+                            <h2><a href="#">Invitations</a></h2>
+                            <p>Choose and design invitations for events of all shapes and sizes. Easily track and manage your participants.</p>
+                            <a href="#" class="read-more">Read more <span class="icon-right"></span></a>
+                        </div><!-- /.features-item -->
+                    </div><!-- /.column -->
+                    <div class="column col-20">
+                        <div class="features-item">
+                            <div class="fi-icon">
+                                <span class="icon-event-flyers"></span>
+                            </div><!-- /.fi-icon -->
+                            <h2><a href="#">Event Flyers</a></h2>
+                            <p>Promote your event with customizable flyers.</p>
+                            <a href="#" class="read-more">Read more <span class="icon-right"></span></a>
+                        </div><!-- /.features-item -->
+                    </div><!-- /.column -->
+                    <div class="column col-20">
+                        <div class="features-item">
+                            <div class="fi-icon">
+                                <span class="icon-event-documents"></span>
+                            </div><!-- /.fi-icon -->
+                            <h2><a href="#">Event Documents</a></h2>
+                            <p>Choose to require liability waivers, informational documents, registration forms, permission slips and more.</p>
+                            <a href="#" class="read-more">Read more <span class="icon-right"></span></a>
+                        </div><!-- /.features-item -->
+                    </div><!-- /.column -->
+                </div><!-- /.features-slider -->
+            </div><!-- /.features -->
+            <div class="home-info-box">
+                <div class="wrap">
+                    <div class="hib-item">
+                        <h3>Events:</h3>
+                        <h2>2,575</h2>
+                        <a href="#">One more<span class="icon-right"></span></a>
+                    </div><!-- /.hib-item -->
+                    <div class="hib-item">
+                        <h3>Registrations:</h3>
+                        <h2>18,493</h2>
+                        <a href="#">Register<span class="icon-right"></span></a>
+                    </div><!-- /.hib-item -->
+                    <div class="hib-item">
+                        <h3>Fees Collected:</h3>
+                        <h2>$730k</h2>
+                        <a href="#">One more<span class="icon-right"></span></a>
+                    </div><!-- /.hib-item -->
+                </div><!-- /.wrap -->
+            </div><!-- /.home-info-box -->
+            <div class="reviews">
+                <div class="wrap">
+                    <div class="page-title">
+                        <p>Lorem ipsum dolor</p>
+                        <h2>Client Reviews</h2>
+                    </div><!-- /.page-title -->
+                    <a href="#" class="reload icon-reload"></a>
+                    <div class="slider-review">
+                        <div class="slide-review">
+                            <div class="event-row clearfix">
+                                <div class="column col-50">
+                                    <div class="review review-left">
+                                        <div class="review-image">
+                                            <img src="{{ asset('assets/upload/man.jpg') }}" alt="">
+                                        </div><!-- /.review-image -->
+                                        <div class="review-text">
+                                            <h2>Nathan Gonzales</h2>
+                                            <p>By using EventTrx our annual kids club registration was a huge success.! EventTrx saved our event organizers time and money with online event registration and payment processing. Even though there was a small fee our members were still much happier because they did not have to fill out paper forms, write checks, and stand in a line for 2 hours again this year. Thanks EventTrx!</p>
+                                        </div><!-- /.review-text -->
+                                    </div><!-- /.review -->
+                                </div><!-- /.column -->
+                                <div class="column col-50">
+                                    <div class="review review-right">
+                                        <div class="review-image">
+                                            <img src="{{ asset('assets/upload/girl.jpg') }}" alt="">
+                                        </div><!-- /.review-image -->
+                                        <div class="review-text">
+                                            <h2>Brenda Weber</h2>
+                                            <p>By using EventTrx our annual kids club registration was a huge success.! EventTrx saved our event organizers time and money with online event registration and payment processing. Even though there was a small fee our members were still much happier because they did not have to fill out paper forms, write checks, and stand in a line for 2 hours again this year. Thanks EventTrx!</p>
+                                        </div><!-- /.review-text -->
+                                    </div><!-- /.review -->
+                                </div><!-- /.column -->
+                            </div><!-- /.row -->
+                        </div><!-- /.slide-review -->
+                        <div class="slide-review">
+                            <div class="event-row clearfix">
+                                <div class="column col-50">
+                                    <div class="review review-left">
+                                        <div class="review-image">
+                                            <img src="{{ asset('assets/upload/girl.jpg') }}" alt="">
+                                        </div><!-- /.review-image -->
+                                        <div class="review-text">
+                                            <h2>Brenda Weber</h2>
+                                            <p>By using EventTrx our annual kids club registration was a huge success.! EventTrx saved our event organizers time and money with online event registration and payment processing. Even though there was a small fee our members were still much happier because they did not have to fill out paper forms, write checks, and stand in a line for 2 hours again this year. Thanks EventTrx!</p>
+                                        </div><!-- /.review-text -->
+                                    </div><!-- /.review -->
+                                </div><!-- /.column -->
+                                <div class="column col-50">
+                                    <div class="review review-right">
+                                        <div class="review-image">
+                                            <img src="{{ asset('assets/upload/man.jpg') }}" alt="">
+                                        </div><!-- /.review-image -->
+                                        <div class="review-text">
+                                            <h2>Nathan Gonzales</h2>
+                                            <p>By using EventTrx our annual kids club registration was a huge success.! EventTrx saved our event organizers time and money with online event registration and payment processing. Even though there was a small fee our members were still much happier because they did not have to fill out paper forms, write checks, and stand in a line for 2 hours again this year. Thanks EventTrx!</p>
+                                        </div><!-- /.review-text -->
+                                    </div><!-- /.review -->
+                                </div><!-- /.column -->
+                            </div><!-- /.row -->
+                        </div><!-- /.slide-review -->
+                    </div><!-- /.slider-review -->
+                    <a href="reviews.html" class="all-reviews">All Reviews<span class="icon-right"></span></a>
+                </div><!-- /.wrap -->
+            </div><!-- /.reviews -->
+            <div class="experience">
+                <div class="wrap">
+                    <div class="experience-title">Create your next experience</div>
+                    <form action="#">
+                        <div class="event-row clearfix">
+                            <div class="column col-80">
+                                <div class="event-row clearfix">
+                                    <div class="column col-33">
+                                        <input type="text" class="input-text" placeholder="Name">
+                                        <span class="icon-user"></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-33">
+                                        <input type="text" class="input-text" placeholder="Email">
+                                        <span class="icon-mail"></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-33">
+                                        <input type="text" class="input-text" placeholder="Password">
+                                        <span class="icon-password"></span>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.column -->
+                            <div class="column col-20">
+                                <input type="submit" class="submit-sign-up" value="Sign up" class="sign-up">
+                            </div><!-- /.column -->
+                        </div><!-- /.row -->
+                    </form>
+                    <div class="experience-text">
+                        <p>Creating an event in EventTrx is simple and fast. To create your next event, just enter your name, email address and create a password. We'll send you a quick account verification email and you'll be off to the races.</p>
+                    </div><!-- /.experience-text -->
+                </div><!-- /.wrap -->
+            </div><!-- /.experience -->
+        </div><!-- /.spanning-columns -->
+    </div><!-- /.main -->
+    <footer>
+        <div class="wrap">
+            <div class="event-row clearfix">
+                <div class="column col-40 desktop-column">
+                    <div class="logo">
+                        <a href="{{ path('app_homepage') }}">
+                            <span>EventTrx</span>
+                            <em>Your Event - Our Solution</em>
+                        </a>
+                    </div><!-- /.logo -->
+                    <div class="footer-text">
+                        <p>Perfect for coordinating social gatherings, planning charity events and signing the kids up for participation in all types of community events</p>
+                    </div>
+                    <div class="copyright">© 2015 sitename.com</div>
+                    <div class="footer-links">
+                        <p><a href="#">Privacy policy</a></p>
+                        <p><a href="#">Terms of service</a></p>
+                    </div><!-- /.footer-links -->
+                </div><!-- /.column -->
+                <div class="column col-40">
+                    <div class="event-row clearfix">
+                        <div class="column col-50">
+                            <div class="footer-title">Plan Events</div>
+                            <ul>
+                                <li><a href="#">Event Academy</a></li>
+                                <li><a href="#">Classes & Workshops</a></li>
+                                <li><a href="#">Conferences</a></li>
+                                <li><a href="#">Endurance</a></li>
+                                <li><a href="#">Food & Drink</a></li>
+                                <li><a href="#">Music</a></li>
+                                <li><a href="#">Nonprofits & Fundraisers</a></li>
+                                <li><a href="#">Performing & Visual Arts</a></li>
+                                <li><a href="#">Politics</a></li>
+                                <li><a href="#">Reunions</a></li>
+                            </ul>
+                        </div><!-- /.column -->
+                        <div class="column col-50">
+                            <div class="footer-title">EventTrx</div>
+                            <ul>
+                                <li><a href="#">Using EventTrx</a></li>
+                                <li><a href="#">How It Works</a></li>
+                                <li><a href="#">Pricing</a></li>
+                                <li><a href="#">Sitemap</a></li>
+                            </ul>
+                        </div><!-- /.column -->
+                    </div><!-- /.row -->
+                </div><!-- /.column -->
+                <div class="column col-20">
+                    <div class="social">
+                        <a href="#" class="icon-facebook"></a>
+                        <a href="#" class="icon-twitter"></a>
+                        <a href="#" class="icon-google"></a>
+                    </div><!-- /.social -->
+                </div><!-- /.column -->
+                <div class="column mobile-column">
+                    <div class="logo">
+                        <a href="{{ path('app_homepage') }}">
+                            <span>EventTrx</span>
+                            <em>Your Event - Our Solution</em>
+                        </a>
+                    </div><!-- /.logo -->
+                    <div class="footer-text">
+                        <p>Perfect for coordinating social gatherings, planning charity events and signing the kids up for participation in all types of community events</p>
+                    </div>
+                    <div class="copyright">© 2015 sitename.com</div>
+                    <div class="footer-links">
+                        <p><a href="#">Privacy policy</a></p>
+                        <p><a href="#">Terms of service</a></p>
+                    </div><!-- /.footer-links -->
+                </div><!-- /.column -->
+            </div><!-- /.row -->
+        </div><!-- /.wrap -->
+    </footer>
+    <div id="registration-box" class="fixed-scroll-window">
+        <div class="registration-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-title">
+                <span class="icon-registration"></span>
+                <h2>Register for a free account</h2>
+                <p>Are you an existing member? <a href="#login-box" class="open-fixed-sidebar">Sign in here</a></p>
+            </div><!-- /.rfb-title -->
+            <div class="rfb-item">
+                <form action="{{ path("app_user_register") }}" class="ajax_form" method="post" data-callback="app.clear_sign_form()" data-error-callback="app.show_error(data, 'sing_up_error')" >
+                    <div class="rfb-box clearfix">
+                        <label>Login</label>
+                        <input type="text" class="input-text " name="data[login]" value="" id="reg_login">
+						<div class="optional-text hidden"></div>
+                    </div><!-- /.rfb-box -->
+					<div class="rfb-box clearfix">
+                        <label>E-mail</label>
+                        <input type="text" class="input-text " name="data[email]" value="" id="reg_email">
+						<div class="optional-text hidden"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Choose a password</label>
+                        <input type="password" class="input-text "name="data[password]" id="reg_pass">
+						<div class="optional-text hidden"></div>
+                        {#
+						<div class="password-info clearfix">
+                            <div class="pi-line pl-4">
+                                <div class="event-row clearfix">
+                                    <div class="column col-20">
+                                        <span></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-20">
+                                        <span></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-20">
+                                        <span></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-20">
+                                        <span></span>
+                                    </div><!-- /.column -->
+                                    <div class="column col-20">
+                                        <span></span>
+                                    </div><!-- /.column -->
+                                </div><!-- /.row -->
+                            </div><!-- /.pi-line -->
+                            <div class="pi-text">
+                                Good
+                            </div><!-- /.pi-text -->
+                        </div><!-- /.password-info -->
+						#}
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Confirm your password</label>
+                        <input type="password" class="input-text" name="data[password_confirm]" id="reg_pass_confirm">
+						<div class="optional-text hidden"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>First name</label>
+                        <input type="text" class="input-text" name="data[first_name]" id="reg_name">
+						<div class="optional-text hidden"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Last name</label>
+                        <input type="text" class="input-text" name="data[last_name]" id="reg_last_name">
+						<div class="optional-text hidden"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Zip code</label>
+                        <input type="text" class="input-text zip" name="data[zip]" >
+                        <div class="optional-text">(Optional)</div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Type the text in the image</label>
+                        <div class="captcha">
+                            <div id="recaptcha_sign_up"></div>
+                        </div><!-- /.captcha -->
+                    </div><!-- /.rfb-box -->
+					<div id="sing_up_error" class="hidden"></div>
+                    <div class="sumbit-info clearfix">
+                        <input type="submit" value="Sign me up!" class="green-button">    
+                        <div class="si-text">
+                            <p>By signing up, you agree to our <a href="#">terms of service</a> and <a href="#">privacy policy</a></p>
+                        </div><!-- /.si-text -->
+                    </div><!-- /.sumbit-info -->
+                    <div class="social-login">
+                        <div class="sl-separator"><span>or</span></div>
+                        <p>Use your email or social media account for fast registration</p>
+                        <div class="sl-box">
+                            <a href="{{ path('social_login', {'provider' : 'Facebook'}) }}" class="slb-facebook"><span class="icon-sl-facebook"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Google'}) }}" class="slb-google"><span class="icon-sl-google"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Twitter'}) }}" class="slb-twitter"><span class="icon-sl-twitter"></span></a>
+                        </div><!-- /.sl-box -->
+                    </div><!-- /.social-login -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.registration-box -->
+    </div><!-- /.fixed-scroll-window -->
+    <div id="login-box" class="fixed-scroll-window">
+        <div class="login-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-login"></span>
+                    <h2>Login</h2>
+                </div><!-- /.rfb-title -->
+                <form action="{{ path("app_user_login") }}" class="ajax_form" method="post" data-error-callback="app.login_error(data);">
+                    <div class="rfb-box clearfix">
+                        <label>Login</label>
+                        <input type="text" class="input-text" name="data[login]" id="login_login">
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Password</label>
+                        <input type="password" class="input-text" name="data[password]" id="login_password">
+						<div class="optional-text"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="sumbit-info clearfix">
+                        <input type="submit" value="Login" class="green-button">
+                        <div class="si-text">
+                            <p>Forgot your <a href="#forgot-box" class="open-fixed-sidebar">password?</a></p>
+                        </div><!-- /.si-text -->
+                    </div><!-- /.sumbit-info -->
+                    <div class="social-login">
+                        <div class="sl-separator"><span>or</span></div>
+                        <p>Use your email or social media account for fast registration</p>
+                        <div class="sl-box">
+                            <a href="{{ path('social_login', {'provider' : 'Facebook'}) }}" class="slb-facebook"><span class="icon-sl-facebook"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Google'}) }}" class="slb-google"><span class="icon-sl-google"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Twitter'}) }}" class="slb-twitter"><span class="icon-sl-twitter"></span></a>
+                        </div><!-- /.sl-box -->
+                        <p>Don't have an account? <a href="#registration-box" class="open-fixed-sidebar">Register</a></p>
+                    </div><!-- /.social-login -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.login-box -->
+    </div><!-- /.fixed-scroll-window -->
+	 <div id="reset-box" class="fixed-scroll-window">
+        <div class="login-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-login"></span>
+                    <h2>Reset your password</h2>
+                </div><!-- /.rfb-title -->
+                <form action="{{ path("app_save_password_reset") }}" class="ajax_form" method="post" data-error-callback="app.reset_error(data)">
+                    <div class="rfb-box clearfix">
+                        <label>New password</label>
+                        <input type="password" class="input-text" name="data[password]" id="reset_password">
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Confirm new password</label>
+                        <input type="password" class="input-text" name="data[password_confirm]" id="reset_password_confirm">
+						<div class="optional-text"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="sumbit-info clearfix">
+                        <input type="submit" value="Continue" class="green-button">
+                    </div><!-- /.sumbit-info -->
+                    <div class="social-login">
+                        <div class="sl-separator"><span>or</span></div>
+                        <p>Use your email or social media account for fast registration</p>
+                        <div class="sl-box">
+                            <a href="{{ path('social_login', {'provider' : 'Facebook'}) }}" class="slb-facebook"><span class="icon-sl-facebook"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Google'}) }}" class="slb-google"><span class="icon-sl-google"></span></a>
+                            <a href="{{ path('social_login', {'provider' : 'Twitter'}) }}" class="slb-twitter"><span class="icon-sl-twitter"></span></a>
+                        </div><!-- /.sl-box -->
+                        <p>Don't have an account? <a href="#registration-box" class="open-fixed-sidebar">Register</a></p>
+                    </div><!-- /.social-login -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.login-box -->
+    </div><!-- /.fixed-scroll-window -->
+    <div id="forgot-box" class="fixed-scroll-window">
+        <div class="forgot-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-forgot"></span>
+                    <h2>Retrieve your Password</h2>
+                    <p>Please follow the instructions to reset your password. If you do not have access to that username any longer, please <a href="#">contact us</a> for further assistance.</p>
+                </div><!-- /.rfb-title -->
+                <form action="{{ path("app_user_forgot") }}" class="ajax_form" method="post" data-callback="app.open_forgot_success()" data-error-callback="app.forgot_error(data)">
+                    <div class="rfb-box clearfix">
+                        <label>E-mail</label>
+                        <input type="text" class="input-text" id="forgot_email" name="email">
+						<div class="optional-text"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Type the text in the image</label>
+                        <div class="captcha">
+                            <div id="recaptcha_forgot"></div>
+                        </div><!-- /.captcha -->
+                    </div><!-- /.rfb-box -->
+                    <div class="sumbit-info clearfix">
+                        <input type="submit" value="Continue" class="green-button"><a href="#" class="cancel-link">Cancel</a>
+                    </div><!-- /.sumbit-info -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.forgot-box -->
+    </div><!-- /.fixed-scroll-window -->
+    <div id="congratulations-box" class="fixed-scroll-window">
+        <div class="congratulations-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-congratulations"></span>
+                    <h2>Congratulations!</h2>
+                </div><!-- /.rfb-title -->
+                <div class="congratulations-text clearfix">
+                    <h2>Your account was created successfully.</h2>
+                    <h3>An email was sent to your email address provided during signup <span id="reg_confirm_email">(godslive@gmail.com)</span> with instructions on how to verify your email address and activate your account.</h3>
+                    <h3>You will not be able to access all the features on this site until you verify your email addres</h3>
+                    <p>If you have not received the email please <a href="#">Click Here</a> to resend the email and follow the instructions provided in the email.</p>
+                    <p>If you don't see email from <a href="mailto:alerts@EventTrx.com">alerts@EventTrx.com</a> in your inbox, please check your spam/junk folder. Also make sure you add <a href="mailto:alerts@EventTrx.com">alerts@EventTrx.com</a> to your address book to receive emails from EventTrx without interruptions. Please allow 1-2 hours for the email to arrive. If you have not received the activation email after this time, please contact us at: <a href="mailto:contactus@EventTrx.com">contactus@EventTrx.com</a></p>
+                </div><!-- /.congratulations-text -->
+                <form action="#">
+                    <div class="sumbit-info clearfix">
+                        <a href="#login-box" class="green-button open-fixed-sidebar">Login</a>
+                    </div><!-- /.sumbit-info -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.forgot-box -->
+    </div><!-- /.fixed-scroll-window -->
+	<div id="forgot-success-box" class="fixed-scroll-window">
+        <div class="congratulations-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-congratulations"></span>
+                    <h2>Congratulations!</h2>
+                </div><!-- /.rfb-title -->
+                <div class="congratulations-text clearfix">
+                    <h3>An email was sent to <span id="forgot_email_text">()</span> with instructions on how to reset your password.</h3>
+                    <p>If you don't see email from <a href="mailto:alerts@EventTrx.com">alerts@EventTrx.com</a> in your inbox, please check your spam/junk folder. Also make sure you add <a href="mailto:alerts@EventTrx.com">alerts@EventTrx.com</a> to your address book to receive emails from EventTrx without interruptions. Please allow 1-2 hours for the email to arrive. If you have not received the activation email after this time, please contact us at: <a href="mailto:contactus@EventTrx.com">contactus@EventTrx.com</a></p>
+                </div><!-- /.congratulations-text -->
+                <form action="#">
+                    <div class="sumbit-info clearfix">
+                        <a href="#login-box" class="green-button open-fixed-sidebar">Login</a>
+                    </div><!-- /.sumbit-info -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.forgot-box -->
+    </div><!-- /.fixed-scroll-window -->
+    <div id="activate-box" class="fixed-scroll-window">
+        <div class="congratulations-box right-fixed-box">
+            <a href="#" class="close-fixed-box"><span class="icon-close"></span></a>
+            <div class="rfb-item">
+                <div class="rfb-title">
+                    <span class="icon-congratulations"></span>
+                    <h2>Congratulations!</h2>
+                    <p>You have activated your account with us. You can continue to EventTrx.com by logging into your account</p>
+                </div><!-- /.rfb-title -->
+                <form action="{{ path("app_user_login") }}" class="ajax_form" method="post" data-error-callback="app.login_error(data);">
+                    <div class="rfb-box clearfix">
+                        <label>Login</label>
+                        <input type="text" class="input-text" name="data[login]" />
+                    </div><!-- /.rfb-box -->
+                    <div class="rfb-box clearfix">
+                        <label>Password</label>
+                        <input type="password" class="input-text"  name="data[password]" id="login_confirm_password" />
+						<div class="optional-text"></div>
+                    </div><!-- /.rfb-box -->
+                    <div class="sumbit-info clearfix">
+                        <input type="submit" value="Login" class="green-button">
+                        <div class="si-text">
+                            <p>Forgot your <a href="#forgot-box" class="open-fixed-sidebar">password?</a></p>
+                        </div><!-- /.si-text -->
+                    </div><!-- /.sumbit-info -->
+                </form>
+            </div><!-- /.rfb-item -->
+        </div><!-- /.forgot-box -->
+    </div><!-- /.fixed-scroll-window -->
+    <div class="mobile-menu-box">
+        <a href="#" class="close-menu-box icon-close"></a>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="how-it-work.html">How it Works</a></li>
+            <li><a href="#login-box" class="open-fixed-sidebar">Login</a></li>
+            <li><a href="#registration-box" class="open-fixed-sidebar">Sign up</a></li>
+        </ul>
+    </div><!-- /.mobile-menu -->
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/dropzone.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('assets/js/library.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+	<script src="{{ asset('assets/js/app.js') }}"></script>
+	<script src='https://www.google.com/recaptcha/api.js?onload=CaptchaCallback&render=explicit'></script>
+	{% if user_confirmed is defined  and user_confirmed == true %}
+	<script>
+		$(document).ready(function(){
+			app.open_confirmed();
+		})
+	</script>
+	{% endif %}
+	{% if show_reset is defined and show_reset == true %}
+	<script>
+		$(document).ready(function(){
+			app.open_reset();
+		})
+	</script>
+	{% endif %}
+</body>
+</html>

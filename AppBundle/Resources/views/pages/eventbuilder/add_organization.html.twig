@@ -1,0 +1,119 @@
+<div id="add-new-organization" class="ajax-sidebar-page">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+			<h2>Add new organization</h2>
+		</div>
+	</div>
+	<form action="{{ path('add_organization') }}" method="post" class="ajax_form" data-callback="eventbuilder.add_organization(data);" data-error-callback="app.show_error(data, 'add_organization_error')" >
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Name of the organization<span class="dev-1-c_green">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<input type="text" class="input-text required" name="data[name]">
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Describe the organization<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<textarea class="input-text"  name="data[description]"></textarea>
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Type of the organization<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<div class="select-box styled-dev-1 w-full">
+					<select class="select"  name="data[type]">
+						<option value="Religious">Religious</option>
+						<option value="Educational">Educational</option>
+						<option value="Recreational">Recreational</option>
+						<option value="Other non-profit">Other non-profit</option>
+						<option value="Professional Event Planner">Professional Event Planner</option>
+						<option value="Non-Profit">Non-Profit</option>
+					</select>
+					<i class="icon-right"></i>
+				</div>
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Contact Name<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<input type="text" class="input-text" name="data[contactName]">
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Contact Email Address<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<input type="text" class="input-text" name="data[contactEmail]">
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Phone Number<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-5">
+				<input type="text" class="input-text phone" name="data[contactPhone]">
+			</div>
+			<div class="col-md-3">
+				<a class="add-new-link dev-1-ml0 dev-1-mb30 pb-anl w-auto"  id="organization_add_fax">
+					<span>+</span> Add Fax Number
+				</a>
+			</div>
+		</div>
+		<div class="row rfb-row hidden" id="organization_fax">
+			<div class="col-md-4">
+				<span class="input-label">Fax Number</span>
+			</div>
+			<div class="col-md-5">
+				<input type="text" class="input-text phone" name="data[contactFax]">
+			</div>
+		</div>
+		<div class="row rfb-row">
+			<div class="col-md-3 col-md-offset-9">
+				<a class="add-new-link dev-1-ml0 pb-anl w-auto" id="organization_add_link">
+					<span>+</span> Add Website Link
+				</a>
+			</div>
+		</div>
+		<div class="row rfb-row hidden"  id="organization_link">
+			<div class="col-md-4">
+				<span class="input-label">Website Link</span>
+			</div>
+			<div class="col-md-8">
+				<input type="text" class="input-text" name="data[contactWebPage]">
+			</div>
+		</div>
+		
+		<div class="row rfb-row">
+			<div class="col-md-8 col-md-offset-4">
+				<div class="psi-text"></div>
+			</div>
+		</div>
+		<div id="add_organization_error general_error" class="hidden"></div>
+
+		<div class="row rfb-row">
+			<div class="col-md-offset-4 col-md-8">
+				<div class="row">
+					<div class="col-md-7">
+						<input type="submit" class="green-button w-full" value="Continue"/>
+					</div>
+					<div class="col-md-5">
+						<a class="discard-links w-full" href="#">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+ $('.phone').mask('(000) 000 0000');
+</script>

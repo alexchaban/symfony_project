@@ -1,0 +1,20 @@
+<div class="rfb-title">
+	<h2>Add new event type</h2>
+</div><!-- /.rfb-title -->
+<form action="{{ path('add_event_type') }}" method="post" class="ajax_form" data-callback="eventbuilder.add_event_type(data);" data-error-callback="app.show_error(data, 'add_event_type_error')" >
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">Event type<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text" name="data[name]"/>
+		</div>
+	</div>
+	<div id="add_event_type_error general_error" class="hidden"></div>
+	<div class="row rfb-row">
+		<div class="col-md-offset-3 col-md-9">
+			<input type="submit" class="green-button" value="Save"/>
+			<a class="discard-links" href="#">Cancel</a>
+		</div>
+	</div>
+</form>

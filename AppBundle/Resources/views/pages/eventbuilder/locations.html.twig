@@ -1,0 +1,350 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block content %}
+
+<div id="content">
+	<div class="registration-form-builder clearfix">
+		<div class="rfb-box-wrap">
+			<div class="rfbw-title styled-dev-1">
+				<h1>Event Builder</h1>
+			</div>
+			{% include 'AppBundle:pages:eventbuilder/steps.html.twig' %}
+		</div>
+		<!--.rfb-box-wrap-->
+	</div>
+	<!-- /.registration-form-builder-->
+	<form action="{{ path('event_locations') }}" method="post" id="location_form">
+		<div class="dev-1-block">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label "><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Event Day Information</div>
+					  <div class="col-lg-10 col-md-12 col-xs-12">
+						<textarea class="base-textarea-dev-1 auto_width" name="data[dayInformation]">{{ event.dayInformation|default('') }}</textarea>
+					  </div>
+					 <div class="col-lg-8 col-md-12 col-xs-12">
+						<div class="row">
+						  <div class="col-lg-3 dev-1-text-label col-xs-12">Start Date/Time<span class="dev-1-c_green">*</span></div>
+						  <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+							{#
+							<input type="text" name="event[startDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+							<input type="text" name="event[startTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+							#}
+							<input type="text" name="data[startDateTime]" id="event_start_date" class="base-input-dev-1 w-380 pull-left open-datepicker eventStartDateTime {# datetime #}" required value="{{ (event.startDateTime is defined) ? event.startDateTime|date('m/d/Y H:i A') }}" />
+						  </div>
+						  <div class="col-lg-3 dev-1-text-label col-xs-12">Finish<span class="dev-1-c_green">*</span></div>
+						  <div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+							{#
+							<input type="text" name="event[endDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+							<input type="text" name="event[endTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+							#}
+							<input type="text" name="data[endDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventEndDateTime {# datetime #}" required value="{{ (event.endDateTime is defined) ? event.endDateTime|date('m/d/Y H:i A') }}" />
+						  </div>
+						</div>
+						<!-- /.row-->
+					  </div>
+					  <!-- /.col-lg-8-->
+					  
+					  <!-- /.col-lg-4.col-xs-12-->
+					  <div class="clearfix"></div>
+					  <div class="col-lg-2 col-xs-12 dev-1-text-label lh-60">Registration dates</div>
+					  <div class="col-lg-10 col-xs-12"><a href="#" class="add-new-link add-registration-dates"><span>-</span>Registration dates different from event dates</a></div>
+					  <div class="registration-dates-block" style="display:block">
+						<div class="col-lg-8 col-md-12 col-xs-12" id="registration_start_date">
+						  <div class="row">
+							<div class="col-lg-3 dev-1-text-label col-xs-12">Registration Start Date/Time<span class="dev-1-c_green">*</span></span></div>
+							<div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+							  {#
+							  <input type="text" name="event[startRegDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+							  <input type="text" name="event[startRegTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+							  #}
+							  <input type="text" name="data[startRegDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventStartRegDateTime {# datetime #}" value="{{ (event.startRegDateTime is defined) ? event.startRegDateTime|date('m/d/Y H:i A') }}" />
+							</div>
+						  </div>
+						</div>
+						<div class="col-lg-8 col-md-12 col-xs-12">
+						  <div class="row">
+							<div class="col-lg-3 dev-1-text-label col-xs-12">Registration End Date/Time<span class="dev-1-c_green">*</span></span></div>
+							<div class="col-lg-9 col-xs-12 m-0 datepicker-block">
+							  {#
+							  <input type="text" name="event[endRegDate]" class="base-input-dev-1 w-230 pull-left open-datepicker only-date">
+							  <input type="text" name="event[endRegTime]" class="base-input-dev-1 w-150 pull-left open-datepicker only-time">
+							  #}
+							  <input type="text" name="data[endRegDateTime]" class="base-input-dev-1 w-380 pull-left open-datepicker eventEndRegDateTime {# datetime #}" value="{{ (event.endRegDateTime is defined) ? event.endRegDateTime|date('m/d/Y H:i A') }}" />
+							</div>
+						  </div>
+						</div>
+					  </div>
+					<div class="col-lg-7 col-lg-offset-2 col-md-7 col-xs-12 dev-1-mb30" id="event_locations">
+						<h2 class="row-title-dev-1">Event Location<span class="dev-1-c_green">*</span></h2>
+						<p class="dev-1-c_gray">Locations can the venue where the event takes place or other places like Lodging etc. Besides,  adding postal codes will make it easier for people find open events near them.  </p>
+					</div>
+					<div class="col-lg-3 col-md-5 col-xs-12 dev-1-mb30">
+						<a href="{{ path('add_location') }}" class="add-new-link pb-anl w-auto m-0 ajax-sidebar">
+							<span>+</span>Add location</a>
+					</div>
+					<div class="col-lg-offset-2 col-lg-10 col-xs-12">
+						<div class="dev-2-table">
+							<div class="tr" id="location_th">
+								<div data-width="150" class="th">Purpose</div>
+								<div data-width="500" class="th">Address</div>
+								<div data-width="100" class="th">City</div>
+								<div data-width="25" class="th"></div>
+							</div>
+					 {% for location in locations %}
+							<div class="tr" id="location_{{ location.id }}">
+								<div class="td">{{ location.purpose }}
+									{% if location.showInEvent %}
+									<div class="location_default">
+									<i class="icon-step"></i> Displayed on event page
+									</div>
+									{% endif %}
+								</div>
+								<div class="td"><div class="location_default">{{ location.info }}</div>{{ location.address }}{{ location.address2 ? ', ' + location.address2}}</div>
+								<div class="td">{{ location.city }}</div>
+								<div class="td">
+									<a href="#" class="dev-1-c_green dev-1-trash event_icon delete_event" data-id="{{ location.id }}">
+										<i class="icon-trash"></i>
+									</a>
+								</div>
+							</div>
+					  {% endfor %}
+
+						</div>
+						<div id="locations_error" class="general_error hidden"></div>
+					</div>
+					<div class="col-lg-10 col-lg-offset-2 col-md-7 col-xs-12">
+						<div class="border-bottom-dev-1"></div>
+					</div>
+				</div>
+				<!-- /.row-->
+				<div class="row">
+					<div class="col-lg-2 col-md-12 dev-1-text-label lh-60 visible-lg">
+						<!-- 
+						<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+							<div class="info-help-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							</div>
+						</a>
+						-->
+					</div>
+					<div class="col-lg-7 col-lg-offset-2 col-md-7 col-xs-12 m-0">
+						<h2 class="row-title-dev-1 dev-1-mt20">Event Documents</h2>
+					</div>
+					<div class="col-lg-3 col-md-5 col-xs-12 dev-1-mt20">
+						<a href="{{ path('add_document') }}" class="add-new-link pb-anl w-auto m-0 ajax-sidebar">
+							<span>+</span>Add Document</a>
+					</div>
+					<div class="col-lg-offset-2 col-lg-10 col-xs-12">
+						<div class="dev-2-table">
+							<div class="tr" id="documents_th">
+								<div data-width="150" class="th">Document name</div>
+								<div data-width="400" class="th">Document information</div>
+								<div data-width="100" class="th">Display</div>
+								<div data-width="25" class="th"></div>
+							</div>
+					  {% for document in documents %}
+							<div class="tr" id="document_{{ document.id }}">
+								<div class="td">{{ document.name }}</div>
+								<div class="td">{{ document.information }}</div>
+								<div class="td">{{ document.options == "event" ? "Event page" : (document.options == "registration" ? "Registration page" : "Both") }}</div>
+								<div class="td">
+									<a href="#" class="dev-1-c_green dev-1-trash event_icon delete_doc" data-id="{{ document.id }}">
+										<i class="icon-trash"></i>
+									</a>
+								</div>
+							</div>
+					  {% endfor %}
+
+						</div>
+						<div id="documents_error" class="general_error hidden"></div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-lg-10 col-lg-offset-2 col-xs-12 dev-1-mb30">
+						<h2 class="row-title-dev-1">Registration Cancellations</h2>
+					</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Are participants allowed to cancel their registration?</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<div class="select-box small-select">
+							<select class="select" name="data[canCancel]">
+								<option value="0">No</option>
+								<option value="1"  {{ event.canCancel == 1 ? 'selected' : ''}}>Yes</option>
+							</select>
+							<i class="icon-right"></i>
+						</div>
+						<!-- /.select-box-->
+					</div>
+					<div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 dev-1-text-label lh-60-sm dev-1-mb0">
+						<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+							<div class="info-help-block">
+								<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> -->
+							</div>
+						</a>Last date to cancel</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+						<input type="text" placeholder="" name="data[cancelDate]" value="{{ event.cancelDate ? event.cancelDate|date("m/d/Y") : '' }}" class="base-input-dev-1 open-datepicker only-date"/>
+					</div>
+					<div class="col-lg-10 col-lg-offset-2 col-xs-12">
+						<div class="border-bottom-dev-1 dev-1-m20"></div>
+					</div>
+				</div>
+				
+				<!-- / .row-->
+				<div class="row">
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">
+						<a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn">?
+							<div class="info-help-block">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							</div>
+						</a>Is this a private invitation only event</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<div class="select-box small-select">
+							<select class="select" name="data[private]" id="private">
+								<option value="0">No</option>
+								<option value="1" {{ event.private == 1 ? 'selected' : '' }}>Yes</option>
+							</select>
+							<i class="icon-right"></i>
+						</div>
+						<!-- /.select-box-->
+					</div>
+					
+					<div id="private_event_invitee_list" class="{{ event.private == 0 ? 'hidden' : '' }}">
+						<div class="col-lg-10 col-lg-offset-2 col-xs-12 dev-1-mb30">
+							<h2 class="row-title-dev-1">Event Invitations</h2>
+							<p class="dev-1-c_gray">We will send invitation to the participants with a link to event page on the specified date. These are the people who can go to the event page and register themselves or others.</p>
+						</div>
+						<div class="col-lg-10 col-lg-offset-2 col-xs-12">
+							<ul class="events_list">
+								{% if invitee|length == 0 %}
+								<!-- / li.row-->
+								<li class="row one_invitee" >
+									<div class="col-lg-7 col-md-12">
+										<div class="row">
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+												<div class="dev-1-c_gray dev-1-label">Name</div>
+												<input type="text" placeholder="" class="base-input-dev-1" name="invitee[name][]" />
+											</div>
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+												<div class="dev-1-c_gray dev-1-label">Email</div>
+												<input type="text" placeholder="" class="base-input-dev-1" name="invitee[email][]" />
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-12">
+										<div class="row">
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6">
+												<span class="del_invitee hidden">
+													<a href="#" class="delite-link m-0 ">
+														<i class="icon-trash"></i>
+													</a>
+													<span class="dev-1-c_gray hidden-xs lh-60- ml-20 pull-left ">Delete</span>
+												</span>
+												<a href="#" class="add-new-link m-0 add_invitee ">
+													<span>+</span>Add
+												</a>
+											</div>
+										</div>
+									</div>
+									<input type="hidden"  name="invitee[id][]" />
+								</li>
+								{% else %}
+						
+								{% for invitation in invitee %}
+								<li class="row one_invitee" >
+									<div class="col-lg-7 col-md-12">
+										<div class="row">
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+												<div class="dev-1-c_gray dev-1-label">Name</div>
+												<input type="text" placeholder="" class="base-input-dev-1"  name="invitee[name][]" value="{{ invitation.name }}" />
+											</div>
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+												<div class="dev-1-c_gray dev-1-label">Email</div>
+												<input type="text" placeholder="" class="base-input-dev-1" name="invitee[email][]" value="{{ invitation.email }}" />
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-5 col-md-12">
+										<div class="row">
+											<div class="col-lg-6 col-md-3 col-sm-6 col-xs-6">
+												<span class="del_invitee {{ loop.last == false ? '' : 'hidden' }}">
+													<a href="#" class="delite-link m-0 ">
+														<i class="icon-trash"></i>
+													</a>
+													<span class="dev-1-c_gray hidden-xs lh-60- ml-20 pull-left ">Delete</span>
+												</span>
+												<a href="#" class="add-new-link m-0 add_invitee {{ loop.last == false ? 'hidden' : '' }}">
+													<span>+</span>Add
+												</a>
+											</div>
+										</div>
+									</div>
+									<input type="hidden"  name="invitee[id][]"  value="{{ invitation.id }}"/>
+								</li>
+								{% endfor %}
+								
+								{% endif %}
+								<!-- / li.row  -->
+							</ul>
+							<!-- / ul.events_list-->
+							<a href="#" class="dev-1-btn dev-1-btn_base dev-1-bd_none dev-1-middle-size dev-1-c_green dev-1-bg_white">
+								<i class="icon-import dev-1-mr12"></i>Import from CSV files</a>
+						</div>
+					</div> <!-- end private event invitee list -->
+					<div class="col-lg-10 col-lg-offset-2 col-xs-12 dev-1-m30">
+						<div class="border-bottom-dev-1"></div>
+					</div>
+				</div>
+				<!-- / .row-->
+				<div class="row">
+					<div class="col-lg-8 col-lg-offset-2 col-xs-12">
+						If as date is not selected below, an email invite will send the invite to the selected people when is published (later durithis steps process)
+					</div>
+					<div class="col-xs-12"></div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Select the date when the invitation should be send</div>
+					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+						<input type="text" class="base-input-dev-1 w-full open-datepicker only-date" name="data[invitationDate]" value="{{ event.invitationDate ? event.invitationDate|date('m/d/Y') : ''}}"/>
+					</div>
+					<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 dev-1-text-label">Should the invitees have question, how can they contact you?</div>
+					<div class="col-lg-5 col-md-3 col-sm-6 col-xs-12">
+						<input type="text" class="base-input-dev-1 w-full" name="data[invitationContact]" value="{{ event.invitationContact }}"/>
+					</div>
+				</div>
+				<!-- / .row-->
+				<!--
+				<div class="row">
+					<div class="col-lg-7 col-lg-offset-2 col-md-5 dev-1-pt26-lg dev-1-c_gray text-right-lg">Is there a fee to participate in this event?</div>
+					<div class="col-lg-3 col-md-5">
+						<div class="checkbox like_btn">
+							<input type="checkbox" id="check11" value="1" name="data[hasFee]" {{ event.hasFee == 1 ? "checked" : "" }}/>
+							<label for="check11" class="w-150 text-center" >Yes</label>
+						</div>
+					</div>
+				</div>
+				-->
+				<!-- / .row-->
+			</div>
+			<!-- /.container-->
+		</div>
+		<!--dev-1-block.dev-1-bg-beige-->
+		<div class="dev-1-bg-beige">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-lg-offset-2 dev-1-m30">
+						<input type="submit" class="green-btn dev-1-m30" value="Continue"> <a href="#" class="gray-btn dev-1-m30 w-auto">Cancel</a>
+					</div>
+				</div>
+				<!-- / .row-->
+			</div>
+			<!-- /.container-->
+		</div>
+		<!--dev-1-block.dev-1-bg-beige-->
+	</form>
+</div>
+{% endblock %}
+
+{% block footer_script %}
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+app_homepage:
+  path:     /
+  defaults: { _controller: AppBundle:Home:index }
+
+app_view_image:
+  path:     /image/{path}
+  defaults: { _controller: AppBundle:MyEvents:viewImage }
+
+app_my_events:
+  path:     /my_events
+  defaults: { _controller: AppBundle:MyEvents:events }
+
+app_new_event:
+  path:     /new_event/{eventId}
+  defaults: { _controller: AppBundle:EventBuilder:addNewEvent, eventId: 'new' }
+
+app_delete_event:
+  path:     /event/{eventId}/delete
+  defaults: { _controller: AppBundle:MyEvents:deleteEvent }
+
+app_cancel_event:
+  path:     /event/{eventId}/cancel
+  defaults: { _controller: AppBundle:MyEvents:cancelEvent }
+
+app_copy_event:
+  path:     /event/{eventId}/copy
+  defaults: { _controller: AppBundle:MyEvents:copyEvent }
+
+event_locations:
+  path:     /event/locations
+  defaults: { _controller: AppBundle:EventBuilder:eventLocations }
+
+event_pricing:
+  path:     /event/pricing
+  defaults: { _controller: AppBundle:EventBuilder:eventPricing }
+
+event_subscription:
+  path:     /event/subscription
+  defaults: { _controller: AppBundle:EventBuilder:eventSubscription }
+
+event_thks:
+  path:     /event/thks
+  defaults: { _controller: AppBundle:EventBuilder:eventThks }
+
+app_user_login:
+  path:     /user_login
+  defaults: { _controller: AppBundle:User:login }
+
+app_user_register:
+  path:     /user_register
+  defaults: { _controller: AppBundle:User:register }
+
+app_user_check_email:
+  path:     /user_check_email
+  defaults: { _controller: AppBundle:User:userCheckEmail }
+
+app_user_check_login:
+  path:     /user_check_login
+  defaults: { _controller: AppBundle:User:userCheckLogin }
+
+app_confirm_user:
+  path:     /user_confirmation/{code}
+  defaults: { _controller: AppBundle:User:confirmUser }
+
+app_reset_password:
+  path:     /reset_password/{code}
+  defaults: { _controller: AppBundle:User:resetPassword }
+
+app_user_forgot:
+  path:     /user_forgot
+  defaults: { _controller: AppBundle:User:forgotPassword }
+
+app_save_password_reset:
+  path:     /save_reset_password
+  defaults: { _controller: AppBundle:User:savePasswordReset }
+
+app_user_logout:
+  path:     /user_logout
+  defaults: { _controller: AppBundle:User:logout }
+
+social_login:
+  path:		/social_login/{provider}
+  defaults: { _controller: AppBundle:User:socialLogin }
+
+social_login_go:
+  path:		/social_login_go/
+  defaults: { _controller: AppBundle:User:socialLoginGo }
+
+add_location:
+  path:     /eventbuilder/add_location
+  defaults: { _controller: AppBundle:EventBuilder:addLocation }
+
+delete_location:
+  path:     /eventbuilder/delete_location
+  defaults: { _controller: AppBundle:EventBuilder:deleteLocation }
+
+add_document:
+  path:     /eventbuilder/add_document
+  defaults: { _controller: AppBundle:EventBuilder:addDocument }
+
+delete_document:
+  path:     /eventbuilder/delete_document
+  defaults: { _controller: AppBundle:EventBuilder:deleteDocument }
+
+add_organization:
+  path:     /eventbuilder/add_organization
+  defaults: { _controller: AppBundle:EventBuilder:addOrganization }
+
+add_event_type:
+  path:     /eventbuilder/add_event_type
+  defaults: { _controller: AppBundle:EventBuilder:addEventType }
+
+check_zip:
+  path:     /check_zip
+  defaults: { _controller: AppBundle:EventBuilder:checkZip }
+
+preview_event:
+  path:     /event/preview/{hash}
+  defaults: { _controller: AppBundle:EventBuilder:preview }

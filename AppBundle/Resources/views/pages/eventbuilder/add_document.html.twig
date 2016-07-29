@@ -1,0 +1,144 @@
+<div id="upload-new-document" class="ajax-sidebar-page">
+	<div class="rfb-title">
+		<h2>Upload new document</h2>
+	</div>
+	<!-- /.rfb-title -->
+	<form action="{{ path('add_document') }}" method="post" class="ajax_form" data-callback="eventbuilder.add_document(data);" data-error-callback="app.show_error(data, 'add_document_error')" >
+
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">
+					<a class="help-icon" href="#">?</a>Document Name<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<input type="text" class="input-text required" name="data[name]" />
+			</div>
+		</div>
+
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">
+					<a class="help-icon" href="#">?</a>Select a document to upload<span class="aster">*</span>
+				</span>
+			</div>
+			<div class="col-md-8">
+				<div id="dropzone" class="sidebar-dropzone" style="width:100%">
+					<div>
+						<span>
+							<i class="icon-drop"/> Upload</span>
+					</div>
+					<input type="file" accept="png, jpg, jpeg, doc, docx, xls, xlsx, pdf" name="document_file" class="required_file"/>
+				</div>
+				<span class="textarea-label">You may upload MS Word, PowerPoint, Excel or PDF files. Image files can also be uploaded. Please upload one file at a time. Maximum file size is 2 MB</span>
+			</div>
+		</div>
+
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Description<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8 dev-1-mb30">
+				<textarea class="input-text required" name="data[information]" ></textarea>
+				<span class="textarea-label">Add information about this document such as instructions. This will be shown along with the document</span>
+			</div>
+		</div>
+
+		<div class="row rfb-row">
+			<div class="col-md-4">
+				<span class="input-label">Document display options<span class="aster">*</span></span>
+			</div>
+			<div class="col-md-8">
+				<ul class="radios-styled-dev-1 inline dev-1-mb30">
+					<li>
+						<input type="radio" value="event" name="data[options]" id="option1" checked=""/>
+						<label for="option1">Event Page</label>
+					</li>
+					<li class="withouth_border">
+						<input type="radio" value="registration" name="data[options]"  id="option2"/>
+						<label for="option2">Registration Page Only</label>
+					</li>
+					<li class="">
+						<input type="radio" value="both" name="data[options]"  id="option3"/>
+						<label for="option3">Both</label>
+					</li>
+					<li/>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row rfb-row">
+			<div class="col-md-offset-4 col-md-4">
+				<ul class="radios-styled-dev-1 simple inline dev-1-mb30">
+					<li>
+						<input type="radio" value="0" name="data[isRequired]"  id="option4"/>
+						<label for="option4">No</label>
+					</li>
+					<li class="withouth_border">
+						<input type="radio" value="1" name="data[isRequired]" id="option5" checked=""/>
+						<label for="option5">Yes</label>
+					</li>
+					<li/>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<span class="input-label extra">Is required during registration?</span>
+			</div>
+		</div>
+		<div id="add_document_error general_error" class="hidden" />
+		<div class="row rfb-row">
+			<div class="col-md-offset-4 col-md-8">
+				<div class="row">
+					<div  class="col-md-6">
+						<input type="submit" class="green-button" value="Save" />
+					</div>
+					<div class="col-md-4">
+						<a class="discard-links close-sidebar" onclick="close_sidebar(); return false" href="#" >Cancel</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+$('#dropzone').on('dragover', function() {
+	$(this).addClass('hover');
+  });
+  
+  $('#dropzone').on('dragleave', function() {
+	$(this).removeClass('hover');
+  });
+  
+  $('#dropzone input').on('change', function(e) {
+	var file = this.files[0];
+
+	$('#dropzone').removeClass('hover');
+	
+	console.log(file.type)
+	var ext = file.name.split('.').pop();
+	
+	if ($.inArray(ext, this.accept.split(/, ?/)) == -1) {
+	  return alert('File type not allowed.');
+	}
+	
+	$('#dropzone').addClass('dropped');
+	$('#dropzone img').remove();
+	
+	if ((/^image\/(gif|png|jpeg)$/i).test(file.type)) {
+	  var reader = new FileReader(file);
+
+	  reader.readAsDataURL(file);
+	  
+	  reader.onload = function(e) {
+		var data = e.target.result,
+			$img = $('<img  style="width:100%"/>').attr('src', data).fadeIn();
+		
+		$('#dropzone div').html($img);
+	  };
+	} else {
+	  var ext = file.name.split('.').pop();
+	  
+	  //$('#dropzone div').html(ext);
+	  $('#dropzone div').html( file.name);
+	}
+  });
+</script>

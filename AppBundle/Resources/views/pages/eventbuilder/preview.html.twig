@@ -1,0 +1,125 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="dev-1-head_block">
+	<img src="{{ path('app_view_image', { 'path': images[0].path }) }}" alt="top image">
+	<div class="dev-1-head-footer">
+	  <div class="container">
+		<div class="row">                
+		  <div class="col-sm-10 col-sm-offset-2 col-xs-12 dev-1-event-img-h1">
+			<div class="row">
+			  <div class="col-xs-8 col-xxs-12">
+				<h1 class="dev-1-main-title dev-1-c_white rel"><a href="{{ path('app_new_event' , {'eventId' : event.hash }) }}#event_title" class="edit_pencil"><i class="icon-edit-dots"></i></a>{{ event.title }}</h1>
+			  </div>
+			  
+			</div>
+		  </div>
+		  <div class="col-lg-2 col-sm-3 hidden-xs">             
+			<div class="dev-1-logo align-left">
+			  <div class="dev-1-logo-in rel"><a href="{{ path('app_new_event' , {'eventId' : event.hash }) }}" class="edit_pencil"><i class="icon-edit-dots"></i></a><img src="{{ path('app_view_image', { 'path': logo.path }) }}" alt="logo"></div>
+			</div>
+		  </div>
+		  <div class="col-lg-5 col-sm-7 col-xs-10">
+			<div class="dev-1-info align-left">
+			  <div class="align-left dev-1-flex"><i class="icon-calendar"></i>
+				<p>{{ event.startDateTime|date('d M') }}  ><br>{{ event.endDateTime|date('d M Y') }}</p>
+			  </div>
+			  <div class="align-left dev-1-flex"><i class="icon-pin"></i>
+				<p>{{ locations[0].address }}<br>{{ locations[0].city }}</p>
+			  </div>
+			</div>
+		  </div>
+		  <!--
+		  <div class="col-lg-5 col-sm-2 col-xs-2">
+			<div class="visible-lg dev-1-c_green">
+			  <div class="dev-1-item align-left"><a href="#"><i class="icon-book"></i></a></div>
+			  <div class="dev-1-item align-left"><a href="#">information<i class="icon-info align-left"></i></a></div>
+			  <div class="dev-1-item align-left"><a href="#"><i class="icon-profile"></i></a></div>
+			  <div class="dev-1-item align-left"><a href="#"><i class="icon-comment"></i></a></div>
+			</div>
+			<div class="dev-1-item align-right hidden-lg">
+			  <div class="dropdown"><a type="button" toggle="dropdown" data-toggle="dropdown" class=" open-events-more  dropdown-togglee">... </a>
+				<ul class="dropdown-menu dev-1-x-samll">
+				  <li><a href="#"><i class="icon-book"></i></a></li>
+				  <li><a href="#"><i class="icon-info"></i></a></li>
+				  <li><a href="#"><i class="icon-profile"></i></a></li>
+				  <li><a href="#"><i class="icon-comment"></i></a></li>
+				</ul>
+			  </div>
+			</div>
+		  </div>
+		  -->
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="dev-1-block">
+	<div class="container">
+	  <div class="row">
+		<div class="col-lg-10 col-lg-offset-2">
+		  <h2 class="dev-1-title">About the event</h2>
+		</div>
+		<div class="col-lg-2 col-md-12 dev-1-text-label rel"><a href="{{ path('app_new_event' , {'eventId' : event.hash }) }}#event_description" class="edit_pencil"><i class="icon-edit-dots"></i></a>What</div>
+		<div class="col-lg-10 col-md-12"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, eum, iusto. Magnam reprehenderit praesentium et aperiam consectetur.</div>
+		<div class="col-lg-2 col-md-12 dev-1-text-label rel"><a href="{{ path('event_locations' , {'eventId' : event.hash }) }}#event_start_date" class="edit_pencil"><i class="icon-edit-dots"></i></a>When</div>
+		<div class="col-lg-10 col-md-12"> {{ event.startDateTime|date('d M') }} &#8594; {{ event.endDateTime|date('d M Y') }}</div>
+		<div class="col-lg-2 col-md-12 dev-1-text-label"><a href="{{ path('event_locations' , {'eventId' : event.hash }) }}#event_locations" class="edit_pencil"><i class="icon-edit-dots"></i></a>Where</div>
+		<div class="col-lg-10 col-md-12"> 
+		  <div class="row">
+			{% for location in locations %}
+			<div class="col-md-6 col-sm-12">
+			  <p>{{ location.address }}</p>
+			  <div class="dev-1-map-block">
+				<div class="dev-1-map">
+					<img src="http://maps.googleapis.com/maps/api/staticmap?size=640x400&style=element:labels|visibility:off&style=element:geometry.stroke|visibility:off&key=AIzaSyBbSDiKPXATaw-FlR6Gov0EGPUzdPiZwtA&center={{ location.address }}, {{ location.city }}" alt="temporar img">
+				</div>
+				<div class="dev-1-info">
+				  <a class="add-new-link show-map">
+					<span><i class="icon-pin"></i></span>
+					Show on GoogleMaps
+				  </a>
+				</div>
+			  </div>
+			</div>
+			{% endfor %}
+			
+		  </div>
+		</div>
+		<div class="col-lg-2 col-md-12 dev-1-text-label rel"><a href="{{ path('event_locations' , {'eventId' : event.hash }) }}#registration_start_date" class="edit_pencil"><i class="icon-edit-dots"></i></a>Registration</div>
+		<div class="col-lg-10 col-md-12">  {{ event.startRegDateTime|date('d M') }} &#8594; {{ event.endRegDateTime|date('d M Y') }}</div>
+	  </div>
+	  <!-- /.row-->
+	</div>
+	<!-- /.container-->
+  </div>
+  <!-- /.dev-1-block-->
+  <div class="dev-1-block dev-1-bg-beige">
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-4 col-md-offset-2">
+		  <a href="{{ path('app_my_events') }}" class="discard-links">Back</a>
+		</div>
+		<!--
+		<div class="col-md-6">
+		  <div class="personal-links dev-1-p0">
+			<a href="#" class="discard-links">Cancel</a>
+			<a href="#" class="green-button">Save</a>
+		  </div>
+		</div>
+		-->
+	  </div>
+	</div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer_script %}
+
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

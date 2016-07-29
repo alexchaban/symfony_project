@@ -1,0 +1,136 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block content %}
+      <div id="content">
+        <div class="dev-2-page_head">
+          <div class="wrap">
+            <h1>Events - Organized by me</h1>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-2"><a href="{{ path('app_new_event') }}" class="btn btn-green">New event</a>
+                  <div class="clearfix h-40"></div>
+                </div>
+                <div class="col-sm-6">
+                  <form class="dev-2-small_search">
+                    <input name="s" type="text" placeholder="Search" class="dev-2-field" value="{{ app.request.get('s') }}">
+                    <button class="search-button"><span class="icon-search"></span></button>
+                    <div class="clearfix h-40"></div>
+                  </form>
+                </div>
+                <div class="col-sm-3 pad_top_20"><a href="#" class="green_link">Subscription Status</a>
+                  <div class="clearfix h-40"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dev-2-content">
+          <div class="wrap">
+            <div class="dev-2-table">
+              <div class="tr">
+                <div class="th">Event name</div>
+                <div data-width="200" class="th"> Event Date</div>
+                <div data-width="230" class="th">Registration<br />Start-End</div>
+                <div data-width="150" class="th">Status Registreted<br />/Waitlisted</div>
+                <div data-width="100" class="th"> </div>
+                <div data-width="240" class="th"> </div>
+              </div>
+              {% if (events.data is defined and events.data|length > 0) %}
+                {% for event in events.data %}
+                  <div class="tr">
+                    <div class="td">
+                      <a href="{{ path('app_new_event', { eventId: event.hash }) }}" class="dev-2-event_link ">{{ event.title }}</a>
+                    </div>
+                    <div class="td">{{ event.startDateTime|date('M d, Y H.i A') }}</div>
+                    {% set startRegDate = (event.startDateTime == event.startRegDateTime) ? 'From publish' : event.startRegDateTime|date('M d, Y') %}
+                    <div class="td">{{ startRegDate }} - {{ event.endRegDateTime|date('M d, Y') }}</div>
+                    <div class="td">0 / 0</div>
+                    <div class="td">{{ event.status == 0 ? 'New' : (event.status == 1 ? 'Published' : 'Canceled')}}</div>
+                    <div class="td">
+                      <a href="#" class="event_icon icon-email" title="Email"></a>
+					  {% if event.status == 0 %}
+                      <a href="{{ path('app_new_event', { eventId: event.hash }) }}" class="event_icon icon-edit-dots" title="Edit"></a>
+					  {% endif %}
+                      <a href="{{ path('app_copy_event', { eventId: event.hash }) }}" class="event_icon icon-copy" title="Copy"></a>
+                      <a href="#" class="event_icon icon-list-view" ></a>
+					  {% if event.status == 0 %}
+                      <a href="javascript:void 0;" onclick="deleteEvent(this);" data-event-id="{{ event.hash }}" data-remove-url="{{ path('app_delete_event', { eventId: event.hash } ) }}" class="event_icon icon-trash" title="Delete"></a>
+					  {% endif %}
+					  {% if event.status == 1 %}
+                      <a href="javascript:void 0;" onclick="canceEvent(this);" data-event-id="{{ event.hash }}" data-remove-url="{{ path('app_cancel_event', { eventId: event.hash } ) }}" class="event_icon icon-cancel" title="Cancel">x</a>
+					  {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                {{ 'Events list is empty' }}
+              {% endif %}
+            </div>
+            <div class="dev-2-paginator">
+              <a href="#" class="prev_but">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <div class="dev-2-paginator_inner">
+                {% set pageNum = (events.recordsFiltered / 5)|round(0, 'ceil') %}
+                {% set pageNum = (pageNum > 0) ? pageNum : 1 %}
+                {% for i in 1..pageNum %}
+                  {% set currentPage = (app.request.get('p') ? app.request.get('p') : 1) %}
+                  {% set active = (currentPage == i) ? 'active' %}
+                  {% set route = app.request.get('_route') %}
+                  {% set route_params = app.request.query.all %}
+                  <a href="{{ path(route, route_params | merge({ 'p': i })) }}" class="page {{ active }}">{{ i }}</a>
+                {% endfor %}
+                {#
+                <a href="#" class="page active">1</a><a href="#" class="page">2</a><a href="#" class="page">3</a><a href="#" class="page">4</a><span>...</span><a href="#" class="page">10</a>
+                #}
+
+              </div>
+              <a href="#" class="next_but">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
+
+{% block footer_script %}
+  <script type="text/javascript">
+    function deleteEvent(el) {
+      var eventId = $(el).data('event-id'),
+          deleteUrl = $(el).data('remove-url');
+      var r = confirm("Delete #" + eventId + " event?");
+
+      if (r === true) {
+        $.ajax({
+          type: "POST",
+          url: deleteUrl,
+        }).done(function(data) {
+          if (jQuery.isPlainObject(data) && void 0 !== data.status) {
+            if (data.status == 'success') {
+              location.reload();
+            }
+          }
+        });
+      }
+    }
+	function canceEvent(el) {
+      var eventId = $(el).data('event-id'),
+          deleteUrl = $(el).data('remove-url');
+      var r = confirm("Cancel #" + eventId + " event?");
+
+      if (r === true) {
+        $.ajax({
+          type: "POST",
+          url: deleteUrl,
+        }).done(function(data) {
+          if (jQuery.isPlainObject(data) && void 0 !== data.status) {
+            if (data.status == 'success') {
+              location.reload();
+            }
+          }
+        });
+      }
+    }
+  </script>
+{% endblock %}

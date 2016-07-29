@@ -1,0 +1,73 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+<div class="spanning">
+            <div class="registration-form-builder clearfix">
+                <div class="rfb-box-wrap">
+                    <div class="rfbw-title">
+                        <h1>Registration Form Builder - Event name</h1>
+                        <a href="#" class="help-link"><span class="icon-help"></span>Help</a>
+                    </div><!-- /.rfbw-title -->
+                    {% include 'AppBundle:pages:eventbuilder/steps.html.twig' %}
+                </div><!-- /.rfb-box-wrap -->
+                <div class="participant-specific-information psi-no-bottom">
+                    <div class="rfb-box-wrap">
+                        <h2>Thank You!</h2>
+                        <!--
+						<h3>A copy of the invoice has been sent to your registered email address.</h3>
+                        <h3>If you have any questions about this payment please email us at <a href="mailto:billing@EventTrx.com">billing@EventTrx.com</a></h3>
+                        -->
+						<div class="row paying-numbers">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="{{ path('app_new_event' , {'eventId' : event.id|default('new') }) }}" class="add-new-link">
+                                    <span class="icon-edit-link"></span>Edit your event
+                                </a>
+                            </div><!-- /.col-md-6 col-sm-6 col-xs-12 -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="{{ path('app_my_events') }}" class="add-new-link">
+                                    <span class="icon-list-event"></span>List events
+                                </a>
+                            </div><!-- /.col-md-6 col-sm-6 col-xs-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.rfb-box-wrap -->
+                </div><!-- /.participant-specific-information -->
+                <div class="rfb-box-wrap rfb-box-list">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="design-participant-form">
+                                <div class="dpf-title dpf-1">
+                                    <span class="icon-dmf"></span>
+                                    <h3>Design <br>flyer </h3>
+                                </div><!-- /.dpf-title -->
+                                <div class="dpf-text">
+                                    <p>Design the main page or flyer for your event. This is the page that contains information about the event such as start date, registration dates, and fees etc.Text...</p>
+                                </div><!-- /.dpf-text -->
+                                <a href="{{ path('preview_event', {'hash' : event.hash }) }}" class="dpf-link">Design flyer</a>
+                            </div><!-- /.design-participant-form -->
+                        </div><!-- /.col-sm-6 -->
+                        <div class="col-sm-6">
+                            <div class="design-participant-form">
+                                <div class="dpf-title dpf-2">
+                                    <span class="icon-dpf"></span>
+                                    <h3>Design Participant Form</h3>
+                                </div><!-- /.dpf-title -->
+                                <div class="dpf-text">
+                                    <p>Design your registration form: This what your participants will use to register for your event. You can add additional information that you would like to capture during registration.</p>
+                                </div><!-- /.dpf-text -->
+                                <a href="#" class="dpf-link">Design registration form </a>
+                            </div><!-- /.design-participant-form -->
+                        </div><!-- /.col-sm-6 -->
+                    </div><!-- /.row -->
+                </div><!-- /.rfb-box-wrap -->
+            </div><!-- /.registration-form-builder -->
+        </div><!-- /.spanning-columns -->
+{% endblock %}
+
+{% block footer_script %}
+
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

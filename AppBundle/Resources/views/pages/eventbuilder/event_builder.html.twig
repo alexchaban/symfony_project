@@ -1,0 +1,321 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+    <form name="main-form" id="eventBuilderForm" method="POST" enctype="multipart/form-data">
+      <div id="content">
+        <div class="registration-form-builder clearfix">
+          <div class="rfb-box-wrap">
+            <div class="rfbw-title styled-dev-1">
+              <h1>Event Builder</h1>
+            </div>
+            {% include 'AppBundle:pages:eventbuilder/steps.html.twig' %}
+          </div>
+          <!--.rfb-box-wrap-->
+        </div>
+        <!-- /.registration-form-builder-->
+
+        <div class="dev-1-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-2 col-md-12 dev-1-text-label lh-60"> </div>
+              <div class="col-lg-10 col-md-12">
+                * denotes mandatory field
+              </div>
+			  <div class="col-lg-2 col-md-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Event Name<span class="dev-1-c_green">*</span></div>
+              <div class="col-lg-10 col-md-12" >
+                <input type="text" name="event[title]" class="base-input-dev-1 w-full" value="{{ event.title|default('') }}" id="event_title" />
+				<div id="title_error" class="general_error hidden"></div>
+              </div>
+              <div class="col-lg-2 col-md-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Type<span class="dev-1-c_green">*</span></span></div>
+              <div class="col-lg-10 col-md-12">
+				<div class="select-box styled-dev-1">
+                  <select class="select" name="event[type]" id="event_type">
+                    {% set sTypeId = event.type.id|default('') %}
+                    {% for eventType in eventTypes %}
+                      <option value="{{ eventType.id }}" {{ (sTypeId == eventType.id) ? 'selected' }}>{{ eventType.name }}</option>
+                    {% endfor %}
+                  </select><i class="icon-right"></i>
+                </div>
+				
+                
+              </div>
+			  
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-60"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Description<span class="dev-1-c_green">*</span></div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <textarea class="base-textarea-dev-1 auto_width" name="event[description]" id="event_description">{{ event.description|default('') }}</textarea>
+				<div id="description_error" class="general_error hidden"></div>
+              </div>
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-180-lg"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Logo</div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <div id="dropzone" class="drop-box-logo">
+                  {#
+                  <form action="{{ path('app_new_event') }}" class="dropzone" id="dropzone-logo">
+                    <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                  </form>
+                  #}
+
+                  <div class="" id="dropzone-logo" style='cursor:pointer;' title="Click to upload">
+                    <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                  </div>
+
+                </div>
+                <div class="up-change-text"><a href="#" class="dev-1-c_red delete-dropzone-files"><i class="icon-close"></i>Delete</a></div>
+                <!-- /.upload-logo-dev-1-->
+              </div>
+              <div class="col-lg-2 col-md-12 col-xs-12 dev-1-text-label lh-180-lg"><a href="#" class="small-icon-dev-1 bordered fz-medium dev-1-mr12">?</a>Pictures</div>
+              <div class="col-lg-10 col-md-12 col-xs-12">
+                <div class="row">
+                  <div class="col-md-8 col-lg-8">
+                    <div class="upload-img-dev-1">
+                      <div class="wrapp_custom-input-file">
+                        {#
+                        <form action="{{ path('app_new_event') }}" multiple class="dropzone" id="dropzone-images">
+                          <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                        </form>
+                        #}
+
+                        <div class=" dropzone" id="dropzone-images">
+                          <div data-dz-message class="dz-message"><span><i class="icon-drop"></i>Upload</span></div>
+                        </div>
+
+                        <!--i.icon-drop-->
+                        <!--input(type="file", class="custom-file-input", multiple)-->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-lg-4 dev-1-c_gray">Min 1200 px - 900 px Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</div>
+                </div>
+              </div>
+              <!-- /.col-lg-10-->
+              <div class="col-lg-12 col-md-12 col-xs-12">
+				<div class="row">
+				  <div class="col-lg-2 col-xs-12 dev-1-text-label">Timezone</div>
+				  <div class="col-lg-5 col-xs-12 m-0">
+					<div class="select-box">
+					  <select class="select" name="event[timezone]">
+						{{ timezones|raw }}
+					  </select><i class="icon-right"></i>
+					</div>
+					<!-- /.select-box-->
+					<div class="clearfix"></div>
+					<div class="dev-1-c_gray dev-1-m30">
+					  <div class="checkbox-material">
+						<input type="checkbox" id="check1" name="event[setAsDefaultTimezone]">
+						<label for="check1"></label>
+					  </div>Set this timezone as my default timezone
+					</div>
+				  </div>
+				</div>
+				<!-- /.row-->
+			  </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!--.dev-1-block-->
+        <div class="dev-1-block dev-1-bg-beige">
+          <div class="container">
+            <div class="row border-bottom-dev-1">
+              <div class="col-md-2 col-xs-12 dev-1-text-label lh-60"> Organized by</div>
+              <div class="col-md-3 col-xs-12">
+                <div class="select-box styled-dev-1">
+                  <select class="select" name="event[organizedBy]" id="organizations">
+					<option value="" >Me</option>
+                    {% set sOrgId = event.organizedBy.id|default('') %}
+                    {% for organization in organizations %}
+                      <option value="{{ organization.id }}" {{ (sOrgId == organization.id) ? 'selected' }}>{{ organization.name }}</option>
+                    {% endfor %}
+                  </select><i class="icon-right"></i>
+                </div>
+              </div>
+              <div class="col-md-3 col-xs-12 dev-1-text-label"><a href="{{ path('add_organization') }}" class="add-new-link ajax-sidebar"><span>+</span>Add new organization</a></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-lg-offset-2">
+                <button class="green-btn dev-1-m30" type="submit" id="eventBuilderGoToNextStep">Continue</button>
+                <a href="{{ path('app_my_events') }}" class="gray-btn dev-1-m30 w-auto">Cancel</a>
+              </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!--dev-1-block.dev-1-bg-beige-->
+      </div>
+    </form>
+<link rel="stylesheet" href="{{ asset('assets/css/dropzone.css') }}">
+{% endblock %}
+
+{% block footer_script %}
+
+<script type="text/javascript">
+  Dropzone.autoDiscover = false;
+  jQuery(document).ready(function() {
+    var picDropzone = new Dropzone("#dropzone-images", {
+      url: "{{ path('app_new_event') }}",
+      autoProcessQueue: false,
+      addRemoveLinks: true,
+	  maxFiles: 1,
+      maxfilesexceeded: function(file) {
+        this.removeAllFiles();
+        this.addFile(file);
+    },
+      init: function () {
+        var myDropzone = this;
+        var thumbnailUrls;
+
+        {% set array = {} %}
+        {% if eventImages|length > 0 %}
+          {% for image in eventImages %}
+            {% set imagePath = path('app_view_image', { 'path': image.path }) %}
+            {% set array = array|merge([imagePath]) %}
+          {% endfor %}
+        {% endif %}
+
+        thumbnailUrls = {{ array|json_encode|raw }}
+
+        if (thumbnailUrls) {
+          for (var i = 0; i < thumbnailUrls.length; i++) {
+            var mockFile = {
+              name: "myimage.jpg",
+              size: 12345,
+              type: 'image/jpeg',
+              status: Dropzone.ADDED,
+              url: thumbnailUrls[i]
+            };
+
+            // Call the default addedfile event handler
+            myDropzone.emit("addedfile", mockFile);
+
+            // And optionally show the thumbnail of the file:
+            myDropzone.emit("thumbnail", mockFile, thumbnailUrls[i]);
+
+            myDropzone.files.push(mockFile);
+          }
+        }
+      }
+    });
+
+    var logoDropzone = new Dropzone('#dropzone-logo', {
+      url: "{{ path('app_new_event') }}",
+      autoProcessQueue: false,
+      {% if eventLogo|length > 0 %}
+      init: function() {
+        var myDropzone = this;
+        var thumbnail = '{{ (eventLogo|length > 0) ? eventLogo.path }}';
+
+        if (thumbnail) {
+          var mockFile = {
+            name: "myimage.jpg",
+            size: 12345,
+            type: 'image/jpeg',
+            status: Dropzone.ADDED,
+            url: "{{ path('app_view_image', { 'path': eventLogo.path }) }}"
+          };
+
+          myDropzone.emit("addedfile", mockFile);
+          myDropzone.emit("thumbnail", mockFile, "{{ path('app_view_image', { 'path': eventLogo.path }) }}");
+          myDropzone.files.push(mockFile);
+        }
+      }
+      {% endif %}
+    });
+
+    var arr = [],
+        deletedImages = [],
+        logo;
+
+    picDropzone.on("addedfile", function(file) {
+      arr = [];
+	  arr.push(file);
+    });
+
+    picDropzone.on("removedfile", function(file) {
+      deletedImages.push(file.url);
+    });
+
+    logoDropzone.on("addedfile", function(file) {
+      logo = file;
+    });
+
+    logoDropzone.on("removedfile", function(file) {
+      deletedImages.push(file.url);
+    });
+
+    $('#eventBuilderGoToNextStep').on('click', function(e) {
+      e.preventDefault();
+      //picDropzone.processQueue();
+		
+		var error = false;
+		
+		if (!$("#event_description").val().length)
+		{
+			error = true;
+			$("#description_error").text("Please provide description").removeClass("hidden");
+		}
+		else
+		{
+			$("#description_error").addClass("hidden");
+		}
+		
+		if (!$("#event_title").val().length)
+		{
+			error = true;
+			$("#title_error").text("Please provide an event name").removeClass("hidden");
+		}
+		else
+		{
+			$("#title_error").addClass("hidden");
+		}
+		
+		
+		if (error)
+			return false;
+      var form = document.forms['main-form'];
+      var fd = new FormData(form);
+	
+      $.each(arr, function (i, v) {
+        fd.append('event[pictures][]', v);
+      });
+
+      $.each(deletedImages, function (i, v) {
+        fd.append('event[deleted-pictures][]', v);
+      });
+      fd.append('event[pictures][logo]', logo);
+
+      $.ajax({
+        type: "POST",
+        data: fd,
+        processData: false,
+        contentType: false,
+        url: "{{ path('app_new_event', {'eventId' : event_hash }) }}",
+        /*
+        success: function(data, status, xhr) {
+          if (data.route != void 0) {
+            location.href = data.route;
+          }
+        }
+        */
+      }).done(function(data) {
+          if (data.route != void 0) {
+            location.href = data.route;
+          } else if (data.inputs != void 0) {
+            $.each(data.inputs, function(i, v) {
+              $("input[name='event[" + v.key + "]']").addClass('validation-failed');
+            });
+          }
+      });
+    });
+
+ 
+
+  });
+</script>
+
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

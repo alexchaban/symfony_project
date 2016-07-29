@@ -1,0 +1,348 @@
+{% extends "AppBundle::pages/layout.html.twig" %}
+
+{% block content %}
+<div class="spanning">
+	<form method="post" action="" >
+            <div class="registration-form-builder clearfix">
+                <div class="rfb-box-wrap">
+                    <div class="rfbw-title">
+                        <h1>Event Builder</h1>
+                        <a href="#" class="help-link"><span class="icon-help"></span>Help</a>
+                    </div><!-- /.rfbw-title -->
+                    {% include 'AppBundle:pages:eventbuilder/steps.html.twig' %}
+                </div><!-- /.rfb-box-wrap -->
+                <div class="participant-specific-information psi-no-bottom">
+                    <div class="rfb-box-wrap">
+                        <h2>Paying for event</h2>
+                        <div class="row paying-numbers">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <p>You have selected <span>{{ event.totalSeats }}</span> participants</p>
+                            </div><!-- /.col-md-6 col-sm-6 col-xs-12 -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="{{ path('event_locations') }}" class="add-new-link">
+                                    <span class="icon-edit-link"></span>Change
+                                </a>
+                            </div><!-- /.col-md-6 col-sm-6 col-xs-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.rfb-box-wrap -->
+                </div><!-- /.participant-specific-information -->
+                <div class="rfb-box-wrap subscription-list">
+                    <div class="subscription-title">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <h2>Your current subscription</h2>
+                            </div><!-- /.col-xs-6 -->
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <a href="#" class="add-new-link">
+                                    <span>+</span>Add your first subscritpion
+                                </a>
+                            </div><!-- /.col-xs-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.subscription-title -->
+                </div><!-- /.rfb-box-wrap -->
+                <div class="rfb-box-wrap">
+                    <div class="subscription-price-list">
+                        <div class="spl-titles">
+                            <div class="spl-mobile-title smt-1">
+                                Package Price
+                            </div><!-- /.spl-mobile-title -->
+                            <div class="spl-mobile-title smt-2">
+                                Included Features
+                            </div><!-- /.spl-mobile-title -->
+                            <div class="spl-mobile-title">
+                                # events
+                            </div><!-- /.spl-mobile-title -->
+                            <div class="spl-mobile-title">
+                                participants/event
+                            </div><!-- /.spl-mobile-title -->
+                            <div class="spl-mobile-title">
+                                % fees for registrations/registration
+                            </div><!-- /.spl-mobile-title -->
+                            <div class="spl-mobile-title">
+                                Processing fees for refunds /transfer
+                            </div><!-- /.spl-mobile-title -->
+                        </div><!-- /.spl-titles -->
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="spl-item">
+                                    <div class="spl-number">1</div>
+                                    <div class="spl-name">
+                                        <h2><a href="#">Single Event</a></h2>
+                                    </div><!-- /.spl-name -->
+                                    <div class="spl-mobile-title">
+                                        Package Price
+                                    </div><!-- /.spl-mobile-title -->
+                                    <div class="spl-price">
+                                        $ 19.95 <span>/mo</span>
+                                    </div><!-- /.spl-price -->
+                                    <ul>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Included Features
+                                            </div><!-- /.spl-mobile-title -->
+                                            <span>––</span>
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                # events
+                                            </div><!-- /.spl-mobile-title -->
+                                            1
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                participants/event
+                                            </div><!-- /.spl-mobile-title -->
+                                            100
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                % fees for registrations/registration
+                                            </div><!-- /.spl-mobile-title -->
+                                            3.00%
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Processing fees for refunds /transfer
+                                            </div><!-- /.spl-mobile-title -->
+                                            <p>2.50</p>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="spl-select">Select</a>
+                                </div><!-- /.spl-item -->   
+                            </div><!-- /.col-xs-4 -->
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="spl-item">
+                                    <div class="spl-number">5</div>
+                                    <div class="spl-name">
+                                        <h2><a href="#">Single Event</a></h2>
+                                    </div><!-- /.spl-name -->
+                                    <div class="spl-mobile-title">
+                                        Package Price
+                                    </div><!-- /.spl-mobile-title -->
+                                    <div class="spl-price">
+                                        $ 39.95 <span>/mo</span>
+                                    </div><!-- /.spl-price -->
+                                    <ul>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Included Features
+                                            </div><!-- /.spl-mobile-title -->
+                                            <span>––</span>
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                # events
+                                            </div><!-- /.spl-mobile-title -->
+                                            1
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                participants/event
+                                            </div><!-- /.spl-mobile-title -->
+                                            100
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                % fees for registrations/registration
+                                            </div><!-- /.spl-mobile-title -->
+                                            3.00%
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Processing fees for refunds /transfer
+                                            </div><!-- /.spl-mobile-title -->
+                                            <p>2.50</p>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="spl-select">Select</a>
+                                </div><!-- /.spl-item -->  
+                            </div><!-- /.col-xs-4 -->
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="spl-item">
+                                    <div class="spl-number spl-infin"><span>8</span></div>
+                                    <div class="spl-name">
+                                        <h2><a href="#">Single Event</a></h2>
+                                    </div><!-- /.spl-name -->
+                                    <div class="spl-mobile-title">
+                                        Package Price
+                                    </div><!-- /.spl-mobile-title -->
+                                    <div class="spl-price">
+                                        $ 99.95 <span>/mo</span>
+                                    </div><!-- /.spl-price -->
+                                    <ul>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Included Features
+                                            </div><!-- /.spl-mobile-title -->
+                                            <span>––</span>
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                # events
+                                            </div><!-- /.spl-mobile-title -->
+                                            1
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                participants/event
+                                            </div><!-- /.spl-mobile-title -->
+                                            100
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                % fees for registrations/registration
+                                            </div><!-- /.spl-mobile-title -->
+                                            3.00%
+                                        </li>
+                                        <li>
+                                            <div class="spl-mobile-title">
+                                                Processing fees for refunds /transfer
+                                            </div><!-- /.spl-mobile-title -->
+                                            <p>2.50</p>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="spl-select">Select</a>
+                                </div><!-- /.spl-item -->
+                            </div><!-- /.col-xs-4 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.subscription-price-list -->
+                </div><!-- /.wrap -->
+                <div class="participant-specific-information">
+                    <div class="rfb-box-wrap">
+                        <div class="additional-options-title">
+                            <a class="small-icon-dev-1 bordered fz-medium dev-1-mr12 info-help-block-btn" href="#">?
+                                <div class="info-help-block">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </a>
+                            <h2>These additional options are available to purchase with the package(s)</h2>
+                        </div><!-- /.additional-options-title -->
+                        <div class="additional-options">
+                            <div class="rfb-row ai-first clearfix">
+                                <div class="rfb-small-title"><span>+50 Seats</span></div>
+                                <div class="row ai-first-row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="select-box">
+                                            <select>
+                                                <option value="How many?">How many?</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                            <span class="icon-right"></span>
+                                        </div><!-- /.select-box -->
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12">
+                                        <p>Single Event</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>5 Events Per Month</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>Unlimited Events</p>
+                                        <input type="text" class="input-text" value="-">
+                                    </div><!-- /.col-xs-2 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.rfb-row -->
+                            <div class="rfb-row clearfix">
+                                <div class="rfb-small-title"><span>+100 Seats</span></div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="select-box">
+                                            <select>
+                                                <option value="How many?">How many?</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                            <span class="icon-right"></span>
+                                        </div><!-- /.select-box -->
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12">
+                                        <p>Single Event</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>5 Events Per Month</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>Unlimited Events</p>
+                                        <input type="text" class="input-text" value="-">
+                                    </div><!-- /.col-xs-2 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.rfb-row -->
+                            <div class="rfb-row clearfix">
+                                <div class="rfb-small-title"><span>+500 Seats</span></div>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                        <div class="select-box">
+                                            <select>
+                                                <option value="How many?">How many?</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                            <span class="icon-right"></span>
+                                        </div><!-- /.select-box -->
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12">
+                                        <p>Single Event</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>5 Events Per Month</p>
+                                        <input type="text" class="input-text" value="$2.50">
+                                    </div>
+                                    <div class="col-md-2 col-sm-6 col-xs-12 ai-no-bottom">
+                                        <p>Unlimited Events</p>
+                                        <input type="text" class="input-text" value="-">
+                                    </div><!-- /.col-xs-2 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.rfb-row -->
+                        </div><!-- /.additional-options -->
+                        <div class="additional-table">
+                            <div class="rfb-row clearfix">
+                                <div class="rfb-small-title"><span>Additional </span></div>
+                                <table>
+                                    <tr>
+                                        <td colspan="3">In additional seats added to this event:   <span>none</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total for the selected package: ( 5 Events / month )</td>
+                                        <td>Total for the selected options:</td>
+                                        <td>Total due today</td>
+                                    </tr>
+                                    <tr>
+                                        <td><p>$39.95</p></td>
+                                        <td><span>None are selected</span></td>
+                                        <td><p>$39.95</p></td>
+                                    </tr>
+                                </table>
+                            </div><!-- /.rfb-row -->
+                        </div><!-- /.additional-table -->
+                    </div><!-- /.rfb-box-wrap -->
+                </div><!-- /.participant-specific-information -->
+                <div class="rfb-box-wrap">
+                    <div class="row">
+                        <div class="col-xs-12 preview-links pl-w-auto">
+                            <input type="submit" class="green-button" value="Continue"/>
+                            <a href="#" class="gray-btn w-auto">Back</a>
+                        </div><!-- / .col-xs-12 -->
+                    </div><!-- / .row-->
+                </div><!-- /.rfb-box-wrap -->
+            </div><!-- /.registration-form-builder -->
+        </div><!-- /.spanning-columns -->
+		</form>
+    </div><!-- /.main -->
+{% endblock %}
+
+{% block footer_script %}
+<script src="{{ asset('assets/js/eventbuilder.js') }}"></script>
+{% endblock %}

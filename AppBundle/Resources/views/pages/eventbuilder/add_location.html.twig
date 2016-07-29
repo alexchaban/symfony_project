@@ -1,0 +1,101 @@
+<div class="rfb-title">
+	<h2>Add new address</h2>
+</div><!-- /.rfb-title -->
+<form action="{{ path('add_location') }}" id="add_location_form" method="post" class="ajax_form" data-callback="eventbuilder.add_location(data);" data-error-callback="app.show_error(data, 'add_location_error')" >
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label"><a class="help-icon" href="#">?</a>Purpose for this location<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text required" name="data[purpose]" />
+		</div>
+	</div>
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">Address Line 1<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text required" name="data[address]" />
+		</div>
+	</div>
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">Line2</span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text" name="data[address_2]" />
+		</div>
+	</div>
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">City<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text required" name="data[city]" />
+		</div>
+	</div>
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">Postal Code<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<input type="text" class="input-text zip required" name="data[zip]"   />
+		</div>
+	</div>
+	<div class="row rfb-row">
+		<div class="col-md-12">
+			<div class="optional-text hidden" id="zip_error" style='color:#f00'></div>
+		</div>
+	</div>
+	
+	<div class="row rfb-row">
+		<div class="col-md-4 text-right">
+			<span class="input-label">State<span class="aster">*</span></span>
+		</div>
+		<div class="col-md-8">
+			<div class="select-box">
+			  <select class="select" name="data[state]">
+				{% for k,v in states%}
+				<option value="{{ k }}">{{ v}}</option>
+				{% endfor %}
+			  </select><i class="icon-right"></i>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row rfb-row">
+		<div class="col-md-4">
+			<span class="input-label">Show this address on Event Page</span>
+		</div>
+		<div class="col-md-8 dev-1-mb30">
+			<div class="select-box styled-dev-1">
+			  <select class="select" name="data[showInEvent]" i>
+				<option value="0" >No</option>
+				<option value="1" selected>Yes</option>
+			  </select><i class="icon-right"></i>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="row rfb-row">
+		<div class="col-md-4">
+			<span class="input-label">Add some notes about this location</span>
+		</div>
+		<div class="col-md-8 dev-1-mb30">
+			<textarea class="input-text" name="data[info]"></textarea>
+		</div>
+	</div>
+
+	<div id="add_location_error general_error" class="hidden"></div>
+	<div class="row rfb-row">
+		<div class="col-md-offset-3 col-md-9">
+			<input type="submit" class="green-button" value="Save"/>
+			<a class="discard-links" href="#">Cancel</a>
+		</div>
+	</div>
+</form>
+<script>
+$('.zip').mask('00000-0000');
+</script>
